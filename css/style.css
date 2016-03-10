@@ -293,7 +293,7 @@ header.hdpage {
   }
 }
 #header-outer {
-  height: 700px;
+  height: 100%;
   position: relative;
 }
 @media screen and (max-width: 479px) {
