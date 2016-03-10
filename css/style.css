@@ -280,7 +280,7 @@ a {
 }
 @media screen and (max-width: 479px) {
   .header {
-    height: 700px;
+    height: 550px;
   }
 }
 header.hdpage {
