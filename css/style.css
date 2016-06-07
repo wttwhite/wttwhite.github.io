@@ -1344,7 +1344,7 @@ a.article-title:hover {
 #content table td .gist .gist-file .gist-data .line-numbers,
 .article-entry .gist .gist-file .gist-data .line-numbers {
   color: #666;
-  font-size: 1em;
+  font-size: 0.85em;
 }
 #content table th code,
 #content table td code,
@@ -1371,7 +1371,7 @@ a.article-title:hover {
   -moz-hyphens: none;
   -ms-hyphens: none;
   hyphens: none;
-  font-size: 14px;
+  font-size: 12px;
   padding: 0.1em;
   -webkit-border-radius: 0.3em;
   border-radius: 0.3em;
@@ -1429,7 +1429,7 @@ a.article-title:hover {
 #content table th .highlight figcaption,
 #content table td .highlight figcaption,
 .article-entry .highlight figcaption {
-  font-size: 1em;
+  font-size: 0.85em;
   color: #999;
   line-height: 1em;
   margin-bottom: 1em;
@@ -1515,7 +1515,7 @@ a.article-title:hover {
 .article-entry .gist .gist-file .gist-meta {
   background: #2d2d2d;
   color: #999;
-  font: 1em "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font: 0.85em "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-shadow: 0 0;
   padding: 0;
   margin-top: 1em;
