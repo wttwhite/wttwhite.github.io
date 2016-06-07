@@ -549,6 +549,7 @@ header.hdpage {
   margin: 20px 0;
 }
 .article-inner {
+  font-size: 16px;
   overflow: hidden;
   background: #fff;
 }
@@ -732,7 +733,7 @@ a.article-title:hover {
 .article-entry .caption {
   color: #999;
   display: block;
-  font-size: 0.9em;
+  font-size: 1em;
   margin-top: 0.5em;
   position: relative;
   text-align: center;
