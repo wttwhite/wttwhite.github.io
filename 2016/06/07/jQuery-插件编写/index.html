@@ -1,18 +1,26 @@
-
-
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <title>jQuery插件的编写 | 紫 椹</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="baidu-site-verification" content="1ZsVVOmjoT" />
-    <meta name="description" content="写这篇文章(总结更为恰当)主要的目的是为了之后编写jq插件的时候可以很快的上手。其实就是一个知识的概括总结和实例代码的堆砌。之前也有看过关于jq的插件，记得当时并不是特别成功。但具体是什么问题已经忘记了。我一直有一种一样东西学了之后，过一段时间就会忘记的那种恐慌，可能就是因为平时并不太去用它们吧。好了，言归正传，我们来说说jq插件吧。
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="写这篇文章(总结更为恰当)主要的目的是为了之后编写jq插件的时候可以很快的上手。其实就是一个知识的概括总结和实例代码的堆砌。之前也有看过关于jq的插件，记得当时并不是特别成功。但具体是什么问题已经忘记了。我一直有一种一样东西学了之后，过一段时间就会忘记的那种恐慌，可能就是因为平时并不太去用它们吧。好" />
+  
+
+  
+  
+  
+  
+  
+  
+  <title>jQuery插件的编写 | White</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="写这篇文章(总结更为恰当)主要的目的是为了之后编写jq插件的时候可以很快的上手。其实就是一个知识的概括总结和实例代码的堆砌。之前也有看过关于jq的插件，记得当时并不是特别成功。但具体是什么问题已经忘记了。我一直有一种一样东西学了之后，过一段时间就会忘记的那种恐慌，可能就是因为平时并不太去用它们吧。好了，言归正传，我们来说说jq插件吧。
 编写插件的目的就是给已经有的一系列方法或函数做一个封装，之后在">
 <meta property="og:type" content="article">
 <meta property="og:title" content="jQuery插件的编写">
 <meta property="og:url" content="http://yoursite.com/2016/06/07/jQuery-插件编写/index.html">
-<meta property="og:site_name" content="紫 椹">
+<meta property="og:site_name" content="White">
 <meta property="og:description" content="写这篇文章(总结更为恰当)主要的目的是为了之后编写jq插件的时候可以很快的上手。其实就是一个知识的概括总结和实例代码的堆砌。之前也有看过关于jq的插件，记得当时并不是特别成功。但具体是什么问题已经忘记了。我一直有一种一样东西学了之后，过一段时间就会忘记的那种恐慌，可能就是因为平时并不太去用它们吧。好了，言归正传，我们来说说jq插件吧。
 编写插件的目的就是给已经有的一系列方法或函数做一个封装，之后在">
 <meta property="og:updated_time" content="2016-06-07T09:30:38.443Z">
@@ -20,138 +28,68 @@
 <meta name="twitter:title" content="jQuery插件的编写">
 <meta name="twitter:description" content="写这篇文章(总结更为恰当)主要的目的是为了之后编写jq插件的时候可以很快的上手。其实就是一个知识的概括总结和实例代码的堆砌。之前也有看过关于jq的插件，记得当时并不是特别成功。但具体是什么问题已经忘记了。我一直有一种一样东西学了之后，过一段时间就会忘记的那种恐慌，可能就是因为平时并不太去用它们吧。好了，言归正传，我们来说说jq插件吧。
 编写插件的目的就是给已经有的一系列方法或函数做一个封装，之后在">
-    
-      <link rel="alternative" href="/atom.xml" title="紫 椹" type="application/atom+xml">
-    
-    
-      <link rel="icon" href="/css/favicon.ico">
-    
-    <link rel="stylesheet" href="/css/style.css">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
 
-    
-<!-- Baidu Analytics -->
-<script type="text/javascript">
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "//hm.baidu.com/hm.js?fe2c7555911b8560db5e56121c5d5960";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
-<!-- End Baidu Analytics -->
-
-
-    <script src="//cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
+  
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
 </head>
-<body>
-<div id="container"> 
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="White" rel="home">White</a>
+      </h1>
+      
+        <h2 class="site-description">
+          <a href="/" id="subtitle">The sandgrass remembers the time we lost</a>
+        </h2>
+      
+    </hgroup>
 
-    
-    <div id="wrap">
-	   
-
-<header id="header" class="hdpage">
-    
-    <div id="header-outer" class="outer">
-        
-        <div id="header-inner" class="inner">
-          <nav id="main-nav">
-            <a id="main-nav-toggle" class="nav-icon"></a>
-            
-              <a class="main-nav-link" href="/">
-                  
-                  
-
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
                 
-                  首页
-                </a>
-            
-              <a class="main-nav-link" href="/archives">
-                  
-                  
-
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
                 
-                  文章
-                </a>
-            
-              <a class="main-nav-link" href="/about">
-                  
-                  
-
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
                 
-                  关于我
-                </a>
-            
-              <a class="main-nav-link" href="https://github.com/wttwhite">
-                  
-                  
-
-                
-                  Github
-                </a>
-            
-          </nav>
-          <nav id="sub-nav">
-            
-              <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-            
-            <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-          </nav>
-          <div id="search-form-wrap">
-            <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-          </div>
-        </div>
-    </div>
+                </ul>
+            </div>
+    </nav>
 </header>
-		<div class="outer">
-		
-    <article id="post-jQuery-插件编写" class="article article-type-post" itemscope itemprop="blogPost">
-      <div class="article-meta">
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-jQuery-插件编写" class="post-jQuery-插件编写 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
         
-          <header class="article-header">
-            
-  
-    <a href="/2016/06/07/jQuery-插件编写/">
-      <h1 class="article-title" itemprop="name">
-        jQuery插件的编写
-      </h1>
-    </a>
-  
-
-
-
-          </header>
         
-
-        <!--<a href="/2016/06/07/jQuery-插件编写/" class="article-date">
-  <time datetime="2016-06-07T07:57:37.680Z" itemprop="datePublished">2016-06-07</time>
-</a>-->
-        <!--  -->
-      </div>
-      <div class="article-inner">
-            
-            
-              <!--<header class="article-header">
-                
   
-    <a href="/2016/06/07/jQuery-插件编写/">
-      <h1 class="article-title" itemprop="name">
-        jQuery插件的编写
-      </h1>
-    </a>
+    <h1 class="entry-title article-title">
+      jQuery插件的编写
+    </h1>
   
 
-
-
-              </header>-->
+        
+        <div class="comments-link">
             
-            <div class="article-entry" itemprop="articleBody">
-              <div class="page-toc">
-                
-              </div>
-              
-                <p>写这篇文章(总结更为恰当)主要的目的是为了之后编写jq插件的时候可以很快的上手。其实就是一个知识的概括总结和实例代码的堆砌。之前也有看过关于jq的插件，记得当时并不是特别成功。但具体是什么问题已经忘记了。我一直有一种一样东西学了之后，过一段时间就会忘记的那种恐慌，可能就是因为平时并不太去用它们吧。好了，言归正传，我们来说说jq插件吧。</p>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/06/07/jQuery-插件编写/" data-id="cisy1ew2s000364ur301b66wz" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>写这篇文章(总结更为恰当)主要的目的是为了之后编写jq插件的时候可以很快的上手。其实就是一个知识的概括总结和实例代码的堆砌。之前也有看过关于jq的插件，记得当时并不是特别成功。但具体是什么问题已经忘记了。我一直有一种一样东西学了之后，过一段时间就会忘记的那种恐慌，可能就是因为平时并不太去用它们吧。好了，言归正传，我们来说说jq插件吧。</p>
 <p>编写插件的目的就是给已经有的一系列方法或函数做一个封装，之后在其他地方可以重复的使用，方便后期维护和提高开发效率。<br>你可以不用一直写一个相同的功能或者是只要Ctrl+C,Ctrl+V就能解决的问题。</p>
 <font size="4">插件主要分为3种类型：</font><br><br><br>1.    封装对象方法的插件<br>将对象方法封装起来，用于对通过选择器获取的jq对象进行操作，是最常见的一种插件。<br>有相当一部分的jq方法，都是在jq的脚本库内部通过这种形式“插”在内核上的，例如parent()、appengTo()、addClass()方法等不少DOM操作方法。<br>2.    封装全局函数的插件<br>可以将独立的函数加到jq命名空间之下。<br>jQuery.noConflict()、jQuery.ajax()、jQuery.trim()方法等，都是jq内部作为全局函数的插件附加到内核上去的。<br>3.    选择器插件<br>虽然jq的选择器十分强大，但还是会需要扩充一些自己喜欢的选择器。<br><br><br><font size="4">插件的基本要点：</font>
 
@@ -174,141 +112,107 @@ var _hmt = _hmt || [];
 </ol>
 <p>3．jQuery提供了一套方法让用户可以通过制作选择器插件来使用自定义选择器，从而使jQuery的选择器功能更加完善。<br>    JQuery的选择符解析器首先会使用一组正则表达式来解析选择器，然后针对解析出的每个选择符执行一个函数，称为选择器函数。最后根据这个选择器函数的返回值为true还是false来决定是否保留这个元素。这样就可以找到匹配的元素节点。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(‘div:gt(1)’);</span><br><span class="line">:gt()选择器在jQuery源文件中的代码：</span><br><span class="line">gt:function(a,I,m)&#123;  //a当前遍历到的DOM元素，i索引值从0开始，m是由jQuery正则解析引擎进一步解析后的产物(用match匹配出来的)，是一个数组。M[0]是gt:(1)部分，m[1]是选择器的引导符，m[2]即gt,m[3]即1，m[4]在如div:l(ss(dd))中指向(dd),但此时m[3]是ss(dd)</span><br><span class="line">	return i&gt;m[3]-0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
-              
-            </div>
-            <footer class="article-footer">
-              <a href="/2016/06/07/jQuery-插件编写/" class="article-date">
-  <time datetime="2016-06-07T07:57:37.680Z" itemprop="datePublished">2016-06-07</time>
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2016/06/07/jQuery-插件编写/">
+    <time datetime="2016-06-07T07:57:37.680Z" class="entry-date">
+        2016-06-07
+    </time>
 </a>
-              <a data-url="http://yoursite.com/2016/06/07/jQuery-插件编写/" data-id="cip58xk4k0003s8urxthaivmz" class="article-share-link">Share</a>
-              
-                <a href="#comments" class="article-comment-link">Comments</a>
-              
-              
-            </footer>
-      </div>
-      
-        
-<nav id="article-nav">
+    
+    
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+    
+        <span class="nav-next"><a href="/2016/04/14/避免js冲突/" rel="next">避免JS冲突 <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
   
-  
-    <a href="/2016/04/14/避免js冲突/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">避免JS冲突</div>
-    </a>
-  
-</nav>
-
-      
-    </article>
-    <script type="text/javascript">
-      window.onscroll = function(){ 
-        $(function(){
-          var $toc = $('.page-toc'),
-              $article = $('.article-entry')
-              toc_top = $toc.offset().top
-              tocsub_width = $toc.children().width()
-              article_height = $article.children().height()
-              scroll_top = document.body.scrollTop
-              screen_h = $(window).height()
-              footer_top = $('.article-footer').offset().top - $(window).height()
-              if(toc_top&&scroll_top&&scroll_top>toc_top&&scroll_top<footer_top){
-                $toc.children().css({
-                  "position": "fixed",
-                  "height": (screen_h -20)+'px',
-                  "overflow": "auto"
-                })
-                $article.css('margin-right',tocsub_width+'px')
-              }else{
-                $toc.children().css({
-                  "position": "relative",
-                  "height":'inherit',
-                  "overflow": "auto"
-                })
-                $article.css('margin-right',0+'px')
-              }
-        })
-      } 
-    </script>
-
-
-
-
-
-
-  <section id="comments">
-    <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/06/07/jQuery-插件编写/" data-title="jQuery插件的编写" data-url="http://yoursite.com/2016/06/07/jQuery-插件编写/"></div>
-    <!-- 多说评论框 end -->
-    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-    <script type="text/javascript">
-    var duoshuoQuery = {short_name:'wttwhite'};
-      (function() {
-        var ds = document.createElement('script');
-        ds.type = 'text/javascript';ds.async = true;
-        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-        ds.charset = 'UTF-8';
-        (document.getElementsByTagName('head')[0] 
-         || document.getElementsByTagName('body')[0]).appendChild(ds);
-      })();
-      </script>
-    <!-- 多说公共JS代码 end -->
-  </section>
-
-
-
-		</div>
-		
-
-<footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-        <div class="left">
-            &copy; 2016 tingting<br>
-            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and Theme by <a href="https://github.com/jaywcjlove/hexoThemeKacper">hexoThemeKacper </a>
-        </div>
-        <div class="right">
-            
-        </div>
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
     </div>
-  </div>
+</form></aside>
+  
+    
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2016/06/07/jQuery-插件编写/">jQuery插件的编写</a>
+          </li>
+        
+          <li>
+            <a href="/2016/04/14/避免js冲突/">避免JS冲突</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/13/JS-object/">Js对象</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/08/JS-prototype/">Js原型链</a>
+          </li>
+        
+          <li>
+            <a href="/2016/02/28/666/">666</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  
+    
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2016 White
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
 </footer>
-<script src="//cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
 
 
-<script type="text/javascript">
-$(function(){
-  var $img = $('.article-entry img'),
-      $link = $img.css({
-        "display":"inline-block"
-      }).parent()
-
-  if($link.parent().is("a")){
-      $img.each(function(idx,item) {
-      $(this).parent().attr('href',$(this).parent().parent().attr('href'))
-    })
-  }
-})
-</script>
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
 <script src="/js/script.js"></script>
 
-  	</div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">首页</a>
-  
-    <a href="/archives" class="mobile-nav-link">文章</a>
-  
-    <a href="/about" class="mobile-nav-link">关于我</a>
-  
-    <a href="https://github.com/wttwhite" class="mobile-nav-link">Github</a>
-  
-</nav>
-    
-</div>
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
 </body>
 </html>
-
