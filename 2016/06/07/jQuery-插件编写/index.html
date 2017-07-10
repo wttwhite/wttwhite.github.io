@@ -277,41 +277,6 @@
 
     </div>
   
-
-    <div class="entry">
-         <!--02-->
-        <div id="toc" class="toc-article">
-    <div class="toc-title">目录</div>
-    
-</div>
-      
-        <p>写这篇文章(总结更为恰当)主要的目的是为了之后编写jq插件的时候可以很快的上手。其实就是一个知识的概括总结和实例代码的堆砌。之前也有看过关于jq的插件，记得当时并不是特别成功。但具体是什么问题已经忘记了。我一直有一种一样东西学了之后，过一段时间就会忘记的那种恐慌，可能就是因为平时并不太去用它们吧。好了，言归正传，我们来说说jq插件吧。</p>
-<a id="more"></a>
-<p>编写插件的目的就是给已经有的一系列方法或函数做一个封装，之后在其他地方可以重复的使用，方便后期维护和提高开发效率。<br>你可以不用一直写一个相同的功能或者是只要Ctrl+C,Ctrl+V就能解决的问题。</p>
-<font size="4">插件主要分为3种类型：</font><br><br><br>1.    封装对象方法的插件<br>将对象方法封装起来，用于对通过选择器获取的jq对象进行操作，是最常见的一种插件。<br>有相当一部分的jq方法，都是在jq的脚本库内部通过这种形式“插”在内核上的，例如parent()、appengTo()、addClass()方法等不少DOM操作方法。<br>2.    封装全局函数的插件<br>可以将独立的函数加到jq命名空间之下。<br>jQuery.noConflict()、jQuery.ajax()、jQuery.trim()方法等，都是jq内部作为全局函数的插件附加到内核上去的。<br>3.    选择器插件<br>虽然jq的选择器十分强大，但还是会需要扩充一些自己喜欢的选择器。<br><br><br><font size="4">插件的基本要点：</font>
-
-<p>插件的文件名推荐命名为jquery.[插件名].js，以免和其他js库插件混淆。<br>所有的对象方法都应该附加到jQuery.fn对象上，而所有的全局函数都应该附加到jQuery对象本身上。<br>在插件内部，this指向的是当前通过选择器获取的jQuery对象，而不像一般的方法那样，例如click()方法，内部的this指向的是DOM元素。<br>可以通过this.each来遍历所有元素。<br>所有的方法或函数插件，都应当以分号结尾，否则压缩的时候可能出现问题为了更稳妥些，甚至可以在插件的头部先加一个分号，以免他人不规范的代码给插件带来影响。<br>插件应该返回一个jQuery对象，以保证插件的可链式操作。除非插件需要返回的是一些需要获取的量，例如字符串或者数组等。<br>避免在插件内部使用$作为jQuery对象的别名，而应该使用完整的jQuery来表示。当然也可以使用闭包来避免冲突，使插件内部继续使用$作为jQuery的别名。</p>
-<p>利用闭包的特性，既可以避免内部临时变量影响全局空间，又可以在插件内部继续使用$作为jQuery的别名。<br>常见的插件结构：<br>//为了更好地兼容性，开始前有个分号<br>;(function($){  //此处将$作为匿名函数的形参<br>     //放置代码<br>})(jQuery);   // 这里讲jQuery作为实参传递给匿名函数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">;(function()&#123;</span><br><span class="line">  Var foo; //定义一个局部变量，仅函数内部可以访问，外部无法访问</span><br><span class="line">  Var bar = function()&#123;</span><br><span class="line">		//匿名函数内部的函数都可以访问foo，在函数外部调用bar()的时候，也可以在bar()的内部访问foo，但在外部直接访问foo是不可以的。</span><br><span class="line">&#125;</span><br><span class="line">$.BAR = bar; //让匿名函数内部的bar()逃逸到全局可访问的范围内，这样可以在匿名函数外部通过调用jQuery.BAR()来访问内部定义的函数bar()，并且bar()也能访问foo</span><br><span class="line">&#125;)( jQuery);</span><br></pre></td></tr></table></figure>
-<p><br></p>
-<font size="4">jQuery插件的机制：</font>
-
-<p>jQuery.fn.extend()方法用于扩展 封装对象方法的插件<br>jQuery.extend()方法用于扩展,经常被用于设置插件方法的一系列默认参数  封装全局函数的插件和选择器插件，还可以扩展已有的Object对象。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">var settings = &#123;name:&apos;1&apos;,limit:5,val:false&#125;;</span><br><span class="line">var options = &#123;name:&apos;2&apos;,val:true&#125;;</span><br><span class="line">var newOptions = jQuery.extend(settings,options);</span><br><span class="line">console.log(newOptions);</span><br><span class="line">//Object &#123;name: &quot;2&quot;, limit: 5, val: true&#125;</span><br><span class="line"></span><br><span class="line">function foo(options)&#123;</span><br><span class="line">	options = jQuery.extend(&#123;</span><br><span class="line">		name:&quot;bar&quot;,</span><br><span class="line">		length:5,</span><br><span class="line">		dataType:&quot;html&quot;    //默认参数</span><br><span class="line">	&#125;,options);  //options为传递的参数</span><br><span class="line">	return options;//要return才有值</span><br><span class="line">&#125;;  </span><br><span class="line">console.log(foo(&#123;name:&apos;a&apos;,length:4&#125;));//调用foo()方法时，在传递的参数对象中设置了相应的值，就使用设置的值，否则就使用默认值</span><br><span class="line">//Object &#123;name: &quot;a&quot;, length: 4, dataType: &quot;html&quot;&#125;</span><br></pre></td></tr></table></figure></p>
-<font size="4">编写jQuery插件</font>
-
-<ol>
-<li><p>封装jQuery对象方法的插件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//该插件实现两个功能：1.设置匹配元素的颜色。2.获取匹配元素的颜色(元素集的第一个)</span><br><span class="line">;(function($)&#123;</span><br><span class="line">	$.fn.extend(&#123;</span><br><span class="line">		color : function(val)&#123;</span><br><span class="line">			if(val == undefined)&#123;</span><br><span class="line">				return this.css(&apos;color&apos;);</span><br><span class="line">			&#125;else&#123;</span><br><span class="line">				return this.css(&apos;color&apos;,val);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;)(jQuery);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>封装全局函数的插件<br>这类插件是在jQuery命名空间内部添加一个函数。这类插件很简单，只是普通的函数，没有特别需要注意的地方。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">//去除左侧、右侧的空格的函数</span><br><span class="line">	;(function($)&#123;</span><br><span class="line">		$.extend(&#123;</span><br><span class="line">			ltrim:function(text)&#123;</span><br><span class="line">				return (text || &apos;&apos;).replace(/^\s+/g,&apos;&apos;);</span><br><span class="line">			&#125;,</span><br><span class="line">			rtrim:function(text)&#123;</span><br><span class="line">				return (text || &apos;&apos;).replace(/\s+$/g,&apos;&apos;);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line"></span><br><span class="line">	&#125;)(jQuery);</span><br><span class="line"></span><br><span class="line">	$(&apos;textarea&apos;).val(</span><br><span class="line">		$.trim(&apos;    text    &apos;)+&apos;\n&apos;+</span><br><span class="line">		$.ltrim(&apos;    text    &apos;)+&apos;\n&apos;+</span><br><span class="line">		$.rtrim(&apos;    text    &apos;)+&apos;\n&apos;</span><br><span class="line"></span><br><span class="line">	);</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>3．jQuery提供了一套方法让用户可以通过制作选择器插件来使用自定义选择器，从而使jQuery的选择器功能更加完善。<br>    JQuery的选择符解析器首先会使用一组正则表达式来解析选择器，然后针对解析出的每个选择符执行一个函数，称为选择器函数。最后根据这个选择器函数的返回值为true还是false来决定是否保留这个元素。这样就可以找到匹配的元素节点。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(‘div:gt(1)’);</span><br><span class="line">:gt()选择器在jQuery源文件中的代码：</span><br><span class="line">gt:function(a,I,m)&#123;  //a当前遍历到的DOM元素，i索引值从0开始，m是由jQuery正则解析引擎进一步解析后的产物(用match匹配出来的)，是一个数组。M[0]是gt:(1)部分，m[1]是选择器的引导符，m[2]即gt,m[3]即1，m[4]在如div:l(ss(dd))中指向(dd),但此时m[3]是ss(dd)</span><br><span class="line">	return i&gt;m[3]-0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
