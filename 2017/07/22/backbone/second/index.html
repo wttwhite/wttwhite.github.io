@@ -15,28 +15,19 @@
 
 
 
-<meta name="description" content="今天用sublime打开*.vue文件，发现代码并没有高亮显示，就知道需要自己安装插件。安装步骤如下：
-1.在sublime中打开Preferences-&amp;gt;Package Control （或者快捷键 Ctrl+Shift+P）;
-2.输入install，选中框选的那一条    右下角会出现loading状态
-3.在弹出的框内输入vue，选中Vue Syntax Highlight插件，回车">
+<meta name="description" content="html部分同之前没有用collection的一样,这里就不赘述了.
+template部分123456&amp;lt;script type=&quot;text/template&quot; id=&quot;content_template&quot;&amp;gt;    &amp;lt;div id=&quot;content&quot;&amp;gt;        显示        &amp;lt;input type=&quot;checkbox&quot; &amp;lt;%= obj.done?&apos;che">
 <meta property="og:type" content="article">
-<meta property="og:title" content="sublime vue 语法高亮插件安装">
-<meta property="og:url" content="wttwhite/2017/03/28/sublime/sublime vue/index.html">
+<meta property="og:title" content="backbone使用Collection">
+<meta property="og:url" content="wttwhite/2017/07/22/backbone/second/index.html">
 <meta property="og:site_name" content="White">
-<meta property="og:description" content="今天用sublime打开*.vue文件，发现代码并没有高亮显示，就知道需要自己安装插件。安装步骤如下：
-1.在sublime中打开Preferences-&amp;gt;Package Control （或者快捷键 Ctrl+Shift+P）;
-2.输入install，选中框选的那一条    右下角会出现loading状态
-3.在弹出的框内输入vue，选中Vue Syntax Highlight插件，回车">
-<meta property="og:image" content="wttwhite/../imgs/sublime/vue/1.png">
-<meta property="og:image" content="wttwhite/../imgs/sublime/vue/2.png">
-<meta property="og:updated_time" content="2017-03-31T06:42:22.270Z">
+<meta property="og:description" content="html部分同之前没有用collection的一样,这里就不赘述了.
+template部分123456&amp;lt;script type=&quot;text/template&quot; id=&quot;content_template&quot;&amp;gt;    &amp;lt;div id=&quot;content&quot;&amp;gt;        显示        &amp;lt;input type=&quot;checkbox&quot; &amp;lt;%= obj.done?&apos;che">
+<meta property="og:updated_time" content="2017-07-22T03:44:44.094Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="sublime vue 语法高亮插件安装">
-<meta name="twitter:description" content="今天用sublime打开*.vue文件，发现代码并没有高亮显示，就知道需要自己安装插件。安装步骤如下：
-1.在sublime中打开Preferences-&amp;gt;Package Control （或者快捷键 Ctrl+Shift+P）;
-2.输入install，选中框选的那一条    右下角会出现loading状态
-3.在弹出的框内输入vue，选中Vue Syntax Highlight插件，回车">
-<meta name="twitter:image" content="wttwhite/../imgs/sublime/vue/1.png">
+<meta name="twitter:title" content="backbone使用Collection">
+<meta name="twitter:description" content="html部分同之前没有用collection的一样,这里就不赘述了.
+template部分123456&amp;lt;script type=&quot;text/template&quot; id=&quot;content_template&quot;&amp;gt;    &amp;lt;div id=&quot;content&quot;&amp;gt;        显示        &amp;lt;input type=&quot;checkbox&quot; &amp;lt;%= obj.done?&apos;che">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -66,7 +57,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>sublime vue 语法高亮插件安装 | White</title>
+<title>backbone使用Collection | White</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -279,11 +270,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-sublime/sublime vue" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-backbone/second" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/03/28/sublime/sublime vue/" class="article-date">
-      <time datetime="2017-03-28T02:49:58.743Z" itemprop="datePublished">2017-03-28</time>
+      <a href="/2017/07/22/backbone/second/" class="article-date">
+      <time datetime="2017-07-22T03:31:22.962Z" itemprop="datePublished">2017-07-22</time>
 </a>
 
 
@@ -298,7 +289,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      sublime vue 语法高亮插件安装
+      backbone使用Collection
     </h1>
   
 
@@ -307,13 +298,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/Web/">Web</a>
+    <a class="article-category-link" href="/categories/web/">web</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sublime/">sublime</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/backbone/">backbone</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -323,12 +314,11 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>今天用sublime打开*.vue文件，发现代码并没有高亮显示，就知道需要自己安装插件。安装步骤如下：</p>
-<p>1.在sublime中打开Preferences-&gt;Package Control （或者快捷键 Ctrl+Shift+P）;</p>
-<p>2.输入install，选中框选的那一条<br><img src="../imgs/sublime/vue/1.png" alt=""><br>    右下角会出现loading状态<img src="../imgs/sublime/vue/2.png" alt=""></p>
-<p>3.在弹出的框内输入vue，选中Vue Syntax Highlight插件，回车安装即可;</p>
-<p>4.重新打开*.vue文件，代码高亮了表明安装成功。</p>
-
+        <p>html部分同之前没有用collection的一样,这里就不赘述了.</p>
+<h3 id="template部分"><a href="#template部分" class="headerlink" title="template部分"></a>template部分</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/template"</span> id=<span class="string">"content_template"</span>&gt;</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"content"</span>&gt;</span></span><br><span class="line">        显示</span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> &lt;%= <span class="attr">obj.done</span>?'<span class="attr">checked</span>= "<span class="attr">checked</span>"'<span class="attr">:</span>'' %&gt;</span> /&gt;是否选择 </span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="model部分"><a href="#model部分" class="headerlink" title="model部分"></a>model部分</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Test =Backbone.Model.extend(&#123;</span><br><span class="line">    <span class="keyword">default</span>:&#123;</span><br><span class="line">        done:<span class="literal">false</span>  <span class="comment">//默认不选</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="collection部分"><a href="#collection部分" class="headerlink" title="collection部分"></a>collection部分<a id="more"></a></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> TestCollection = Backbone.Collection.extend(&#123;</span><br><span class="line">    model: Test  </span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">var</span> testCollection = <span class="keyword">new</span> TestCollection(&#123;<span class="comment">//填充实例</span></span><br><span class="line">    done:<span class="literal">true</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="view部分"><a href="#view部分" class="headerlink" title="view部分"></a>view部分</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> TestView = Backbone.View.extend(&#123;</span><br><span class="line">    el:<span class="string">"#all"</span>,</span><br><span class="line">    template:_.template($(<span class="string">'#content_template'</span>).html()),</span><br><span class="line">    </span><br><span class="line">    initialize: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.render();</span><br><span class="line">    &#125;,</span><br><span class="line">    render: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> data = &#123;</span><br><span class="line">            obj:<span class="keyword">this</span>.collection.toJSON()</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">this</span>.$el.find(<span class="string">'.content'</span>).html(<span class="keyword">this</span>.template(data)); </span><br><span class="line">        <span class="built_in">console</span>.log(<span class="number">1</span>);</span><br><span class="line">    &#125;,</span><br><span class="line">    events:&#123;</span><br><span class="line">        <span class="string">"click .Dbtn"</span>:<span class="string">"Done"</span>,</span><br><span class="line">        <span class="string">"click #content"</span> : <span class="string">"hide"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    Done : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        $(<span class="string">'.content'</span>).css(<span class="string">"display"</span>,<span class="string">"block"</span>);</span><br><span class="line">        $(<span class="string">'#all .Dbtn button'</span>).css(<span class="string">'background'</span>,<span class="string">"red"</span>);</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'done'</span>);</span><br><span class="line">    &#125;,</span><br><span class="line">    hide : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        $(<span class="string">'.content'</span>).css(<span class="string">"display"</span>,<span class="string">"none"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//创建view实例时把collection传递进去</span></span><br><span class="line"><span class="keyword">var</span> testView = <span class="keyword">new</span> TestView(&#123;collection:testCollection&#125;);</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -336,13 +326,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/03/28/sublime/sublime vue/">sublime vue 语法高亮插件安装</a></p>
+        <p><span>本文标题:</span><a href="/2017/07/22/backbone/second/">backbone使用Collection</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">White</a></p>
-        <p><span>发布时间:</span>2017-03-28, 10:49:58</p>
-        <p><span>最后更新:</span>2017-03-31, 14:42:22</p>
+        <p><span>发布时间:</span>2017-07-22, 11:31:22</p>
+        <p><span>最后更新:</span>2017-07-22, 11:44:44</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/03/28/sublime/sublime vue/" title="sublime vue 语法高亮插件安装">wttwhite/2017/03/28/sublime/sublime vue/</a>
-            <span class="copy-path" data-clipboard-text="原文: wttwhite/2017/03/28/sublime/sublime vue/　　作者: White" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/07/22/backbone/second/" title="backbone使用Collection">wttwhite/2017/07/22/backbone/second/</a>
+            <span class="copy-path" data-clipboard-text="原文: wttwhite/2017/07/22/backbone/second/　　作者: White" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -355,15 +345,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/04/11/matlab/matlab-查看自带函数源代码/">
-                    如何查看matlab自带函数的源代码
+                <a href="/2017/07/22/js模块规范/commonjs/commomjs/">
+                    CommonJS
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2017/03/27/markdown/markdown/">
-                    markdown
+                <a href="/2017/07/22/backbone/first/">
+                    backbone零基础
                 </a>
             </div>
         
@@ -375,7 +365,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#template部分"><span class="toc-number">1.</span> <span class="toc-text">template部分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#model部分"><span class="toc-number">2.</span> <span class="toc-text">model部分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#collection部分"><span class="toc-number">3.</span> <span class="toc-text">collection部分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#view部分"><span class="toc-number">4.</span> <span class="toc-text">view部分</span></a></li></ol>
         
     </div>
     <style>
@@ -411,7 +401,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"sublime vue 语法高亮插件安装　| White　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"backbone使用Collection　| White　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -427,7 +417,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2017/03/28/sublime/sublime vue/" data-title="sublime vue 语法高亮插件安装" data-url="wttwhite/2017/03/28/sublime/sublime vue/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2017/07/22/backbone/second/" data-title="backbone使用Collection" data-url="wttwhite/2017/07/22/backbone/second/"></div>
     <script>
         var duoshuoQuery = {short_name:"wttwhite"};
         var loadComment = function(){
@@ -450,7 +440,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/04/11/matlab/matlab-查看自带函数源代码/" title="上一篇: 如何查看matlab自带函数的源代码">
+            <a href="/2017/07/22/js模块规范/commonjs/commomjs/" title="上一篇: CommonJS">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -458,7 +448,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/03/27/markdown/markdown/" title="下一篇: markdown">
+            <a href="/2017/07/22/backbone/first/" title="下一篇: backbone零基础">
                 <i class="fa fa-angle-right"></i>
             </a>
         
