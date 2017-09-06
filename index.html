@@ -192,7 +192,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/backbone/">backbone</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/command-line/">command-line</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jquery/">jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js模块规范/">js模块规范</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/knowledge-point/">knowledge point</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime/">sublime</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/backbone/">backbone</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/command-line/">command-line</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jquery/">jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js模块规范/">js模块规范</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/knowledge-point/">knowledge point</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime/">sublime</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/插件/">插件</a></li></ul>
                     </div>
                 </section>
                 
@@ -272,6 +272,87 @@
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-插件/完美滚动条" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/09/06/插件/完美滚动条/" class="article-date">
+      <time datetime="2017-09-06T12:23:33.565Z" itemprop="datePublished">2017-09-06</time>
+</a>
+
+ 
+    <a href="/2017/09/06/插件/完美滚动条/#comments" title="查看评论">
+        <i class="fa fa-comments-o" aria-hidden="true"></i>
+        <span class="count-comment"></span>
+        
+            <span class="ds-thread-count"  data-thread-key="2017/09/06/插件/完美滚动条/" ></span>
+        
+        
+    </a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/06/插件/完美滚动条/">完美滚动条:prefect-scrollbar</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h3 id="简单页面中使用"><a href="#简单页面中使用" class="headerlink" title="简单页面中使用"></a>简单页面中使用</h3><h4 id="html"><a href="#html" class="headerlink" title="html"></a>html</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>342424242<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="css"><a href="#css" class="headerlink" title="css"></a>css</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;style lang=""&gt;</span><br><span class="line">  .container&#123;position: relative;width:200px;height: 200px;overflow: hidden;&#125;</span><br><span class="line">  .container div&#123;width:1000px;height: 1000px;background-color: #ccc;&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="js"><a href="#js" class="headerlink" title="js"></a>js</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"js/jquery.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&lt;script src=<span class="string">"js/perfect-scrollbar.jquery.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&lt;script src=<span class="string">"js/perfect-scrollbar.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  $(<span class="string">'.container'</span>).perfectScrollbar();</span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<h4 id="其他的调用方法"><a href="#其他的调用方法" class="headerlink" title="其他的调用方法"></a>其他的调用方法</h4><p>1.销毁:<code>$(&#39;.container&#39;).perfectScrollbar(&#39;destroy&#39;);</code><br>2.滚动到某一特定位置:<code>$(&#39;.container&#39;).scrollTop(0);$(&#39;.container&#39;).perfectScrollbar(&#39;update&#39;);</code></p>
+<h3 id="项目中使用"><a href="#项目中使用" class="headerlink" title="项目中使用"></a>项目中使用</h3><h4 id="模块下载"><a href="#模块下载" class="headerlink" title="模块下载"></a>模块下载</h4><p><code>$npm install perfect-scrollbar</code></p>
+<h4 id="html-1"><a href="#html-1" class="headerlink" title="html"></a>html</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"dist/css/perfect-scrollbar.css"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span><br><span class="line">  <span class="selector-id">#container</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>; <span class="comment">/* Or whatever you want (e.g. 400px) */</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h4><p><code>const Ps = require(&#39;perfect-scrollbar&#39;);</code><br><code>import * as Ps from &#39;perfect-scrollbar&#39;;</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> container = <span class="built_in">document</span>.querySelector(<span class="string">'#container'</span>);</span><br><span class="line">Ps.initialize(container, &#123;</span><br><span class="line">  wheelSpeed: <span class="number">2</span>,</span><br><span class="line">  wheelPropagation: <span class="literal">true</span>,</span><br><span class="line">  minScrollbarLength: <span class="number">20</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="其他调用方法"><a href="#其他调用方法" class="headerlink" title="其他调用方法"></a>其他调用方法</h4><p><code>Ps.update(container);</code><br><code>Ps.destroy(container);</code><br><code>container.scrollTop = 0;</code><br>其余API参考<a href="https://github.com/noraesae/perfect-scrollbar" target="_blank" rel="external">githu</a>;</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/js/">js</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/插件/">插件</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-js模块规范/CMD/CMD" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -507,86 +588,6 @@
 
 
   
-    <article id="post-backbone/second" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/07/22/backbone/second/" class="article-date">
-      <time datetime="2017-07-22T03:31:22.962Z" itemprop="datePublished">2017-07-22</time>
-</a>
-
- 
-    <a href="/2017/07/22/backbone/second/#comments" title="查看评论">
-        <i class="fa fa-comments-o" aria-hidden="true"></i>
-        <span class="count-comment"></span>
-        
-            <span class="ds-thread-count"  data-thread-key="2017/07/22/backbone/second/" ></span>
-        
-        
-    </a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/22/backbone/second/">backbone使用Collection</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>html部分同之前没有用collection的一样,这里就不赘述了.</p>
-<h3 id="template部分"><a href="#template部分" class="headerlink" title="template部分"></a>template部分</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/template"</span> id=<span class="string">"content_template"</span>&gt;</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"content"</span>&gt;</span></span><br><span class="line">        显示</span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> &lt;%= <span class="attr">obj.done</span>?'<span class="attr">checked</span>= "<span class="attr">checked</span>"'<span class="attr">:</span>'' %&gt;</span> /&gt;是否选择 </span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-<h3 id="model部分"><a href="#model部分" class="headerlink" title="model部分"></a>model部分</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Test =Backbone.Model.extend(&#123;</span><br><span class="line">    <span class="keyword">default</span>:&#123;</span><br><span class="line">        done:<span class="literal">false</span>  <span class="comment">//默认不选</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h3 id="collection部分"><a href="#collection部分" class="headerlink" title="collection部分"></a>collection部分
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/web/">web</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/backbone/">backbone</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2017/07/22/backbone/second/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-backbone/first" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -646,6 +647,86 @@
       
         <p class="article-more-link">
           <a href="/2017/07/22/backbone/first/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-backbone/second" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/07/22/backbone/second/" class="article-date">
+      <time datetime="2017-07-22T03:31:22.962Z" itemprop="datePublished">2017-07-22</time>
+</a>
+
+ 
+    <a href="/2017/07/22/backbone/second/#comments" title="查看评论">
+        <i class="fa fa-comments-o" aria-hidden="true"></i>
+        <span class="count-comment"></span>
+        
+            <span class="ds-thread-count"  data-thread-key="2017/07/22/backbone/second/" ></span>
+        
+        
+    </a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/22/backbone/second/">backbone使用Collection</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>html部分同之前没有用collection的一样,这里就不赘述了.</p>
+<h3 id="template部分"><a href="#template部分" class="headerlink" title="template部分"></a>template部分</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/template"</span> id=<span class="string">"content_template"</span>&gt;</span><br><span class="line">    &lt;div id="content"&gt;</span><br><span class="line">        显示</span><br><span class="line">        &lt;input type="checkbox" &lt;%= obj.done?'checked= "checked"':'' %&gt; /&gt;是否选择 </span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="model部分"><a href="#model部分" class="headerlink" title="model部分"></a>model部分</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Test =Backbone.Model.extend(&#123;</span><br><span class="line">    <span class="keyword">default</span>:&#123;</span><br><span class="line">        done:<span class="literal">false</span>  <span class="comment">//默认不选</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="collection部分"><a href="#collection部分" class="headerlink" title="collection部分"></a>collection部分
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/web/">web</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/backbone/">backbone</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2017/07/22/backbone/second/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -953,74 +1034,6 @@ matlab中的一些内置函数是看不到源码的，比如：max,min,find…�
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/markdown/">markdown</a></li></ul>
     </div>
 
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-demo/爱心小鱼" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/01/03/demo/爱心小鱼/" class="article-date">
-      <time datetime="2017-01-03T09:34:08.382Z" itemprop="datePublished">2017-01-03</time>
-</a>
-
- 
-    <a href="/2017/01/03/demo/爱心小鱼/#comments" title="查看评论">
-        <i class="fa fa-comments-o" aria-hidden="true"></i>
-        <span class="count-comment"></span>
-        
-            <span class="ds-thread-count"  data-thread-key="2017/01/03/demo/爱心小鱼/" ></span>
-        
-        
-    </a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/03/demo/爱心小鱼/">爱心小鱼</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <font size="4" style="margin-left:40px;">这个小<a href="https://github.com/wttwhite/small-demo/tree/master/%E7%88%B1%E5%BF%83%E5%B0%8F%E9%B1%BC%E6%B8%B8%E6%88%8F" target="_blank" rel="external">demo</a>是在大概一年前跟着慕课网学习时写的，当时就添加了一些自己想到的小功能：<br>1.增加了倒计时功能(定时器)；<br>2.增加了游戏开始前的提示；<br>3.增加了大鱼吃果实的音效，大鱼喂小鱼的音效，最后十秒倒计时和计时停止时的音效；<br></font><br><font size="4" style="margin-left:40px;">最近又突然想起了这个小游戏，把每次重新开始游戏必须按F5，这个完善了下。游戏结束后，点击重新开始游戏，页面就会刷新。</font>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/Demo/">Demo</a>
-    </div>
-
-
-      
       
       <div class="clearfix"></div>
     </div>

@@ -15,16 +15,19 @@
 
 
 
-<meta name="description" content="概述CMD规范和AMD相似，尽量保持简单，并且与CommonJS和NodeJS的Modules规范保持了很大的兼容性。AMD和CMD都是用difine和require，但是CMD标准倾向于在使用过程中提出依赖，就是不管代码写到哪突然发现需要依赖另一个模块，那就在当前代码用require引入就可以了，规范会帮你搞定预加载，你随便写就可以了。但是AMD标准让你必须提前在头部依赖参数部分写好（没有写好？">
+<meta name="description" content="简单页面中使用html123&amp;lt;div class=&quot;container&quot;&amp;gt;  &amp;lt;div&amp;gt;342424242&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;
+css1234&amp;lt;style lang=&quot;&quot;&amp;gt;  .container&amp;#123;position: relative;width:200px;height: 200px;overflow: hidden;&amp;#">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CMD">
-<meta property="og:url" content="wttwhite/2017/07/22/js模块规范/CMD/CMD/index.html">
+<meta property="og:title" content="完美滚动条:prefect-scrollbar">
+<meta property="og:url" content="wttwhite/2017/09/06/插件/完美滚动条/index.html">
 <meta property="og:site_name" content="White">
-<meta property="og:description" content="概述CMD规范和AMD相似，尽量保持简单，并且与CommonJS和NodeJS的Modules规范保持了很大的兼容性。AMD和CMD都是用difine和require，但是CMD标准倾向于在使用过程中提出依赖，就是不管代码写到哪突然发现需要依赖另一个模块，那就在当前代码用require引入就可以了，规范会帮你搞定预加载，你随便写就可以了。但是AMD标准让你必须提前在头部依赖参数部分写好（没有写好？">
-<meta property="og:updated_time" content="2017-07-22T03:43:54.124Z">
+<meta property="og:description" content="简单页面中使用html123&amp;lt;div class=&quot;container&quot;&amp;gt;  &amp;lt;div&amp;gt;342424242&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;
+css1234&amp;lt;style lang=&quot;&quot;&amp;gt;  .container&amp;#123;position: relative;width:200px;height: 200px;overflow: hidden;&amp;#">
+<meta property="og:updated_time" content="2017-09-06T12:25:03.295Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CMD">
-<meta name="twitter:description" content="概述CMD规范和AMD相似，尽量保持简单，并且与CommonJS和NodeJS的Modules规范保持了很大的兼容性。AMD和CMD都是用difine和require，但是CMD标准倾向于在使用过程中提出依赖，就是不管代码写到哪突然发现需要依赖另一个模块，那就在当前代码用require引入就可以了，规范会帮你搞定预加载，你随便写就可以了。但是AMD标准让你必须提前在头部依赖参数部分写好（没有写好？">
+<meta name="twitter:title" content="完美滚动条:prefect-scrollbar">
+<meta name="twitter:description" content="简单页面中使用html123&amp;lt;div class=&quot;container&quot;&amp;gt;  &amp;lt;div&amp;gt;342424242&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;
+css1234&amp;lt;style lang=&quot;&quot;&amp;gt;  .container&amp;#123;position: relative;width:200px;height: 200px;overflow: hidden;&amp;#">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -54,7 +57,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>CMD | White</title>
+<title>完美滚动条:prefect-scrollbar | White</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -267,11 +270,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-js模块规范/CMD/CMD" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-插件/完美滚动条" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/07/22/js模块规范/CMD/CMD/" class="article-date">
-      <time datetime="2017-07-22T03:40:01.323Z" itemprop="datePublished">2017-07-22</time>
+      <a href="/2017/09/06/插件/完美滚动条/" class="article-date">
+      <time datetime="2017-09-06T12:23:33.565Z" itemprop="datePublished">2017-09-06</time>
 </a>
 
 
@@ -286,7 +289,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      CMD
+      完美滚动条:prefect-scrollbar
     </h1>
   
 
@@ -295,13 +298,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/web/">web</a>
+    <a class="article-category-link" href="/categories/js/">js</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js模块规范/">js模块规范</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/插件/">插件</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -311,16 +314,15 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>CMD规范和AMD相似，尽量保持简单，并且与CommonJS和NodeJS的Modules规范保持了很大的兼容性。<br>AMD和CMD都是用<code>difine</code>和<code>require</code>，但是CMD标准倾向于在使用过程中提出依赖，就是不管代码写到哪突然发现需要依赖另一个模块，那就在当前代码用<code>require</code>引入就可以了，规范会帮你搞定预加载，你随便写就可以了。但是AMD标准让你必须提前在头部依赖参数部分写好（没有写好？ 倒回去写好咯）。这就是最明显的区别。</p>
-<h3 id="AMD和CMD的区别"><a href="#AMD和CMD的区别" class="headerlink" title="AMD和CMD的区别"></a>AMD和CMD的区别<a id="more"></a></h3><p>下面这几点是玉伯在知乎上说的。</p>
-<ol>
-<li>对于依赖的模块，AMD 是提前执行，CMD 是延迟执行。不过 RequireJS 从 2.0 开始，也改成可以延迟执行（根据写法不同，处理方式不同）。CMD 推崇 as lazy aspossible.</li>
-<li>CMD 推崇依赖就近，AMD 推崇依赖前置。</li>
-<li>AMD 的 API 默认是一个当多个用，CMD 的 API 严格区分，推崇职责单一。比如 AMD 里，<code>require</code> 分全局 <code>require</code> 和局部 <code>require</code>，都叫 <code>require</code>。CMD 里，没有全局 <code>require</code>，而是根据模块系统的完备性，提供 <code>seajs.use</code> 来实现模块系统的加载启动。CMD 里，每个 API 都简单纯粹。</li>
-</ol>
-<h3 id="AMD和CMD的一些相同"><a href="#AMD和CMD的一些相同" class="headerlink" title="AMD和CMD的一些相同"></a>AMD和CMD的一些相同</h3><p>都有<code>difine</code>和<code>require</code>，而且调用方式实际都可以添加依赖参数，也就是说都可以用提供依赖参数的方式来实现预加载依赖模块（但是不推荐因为  <strong>注意</strong>：带 <code>id</code> 和 <code>deps</code> 参数的 <code>define</code> 用法不属于 CMD 规范，而属于 <code>Modules/Transport</code> 规范。<br>AMD也可以在<code>factory</code>中使用<code>require</code>来现加载用到的模块，但是这个模块就不会预先加载，属于用到才加载的同步加载了。</p>
-<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><p>依赖就近，延迟执行<br>很容易在node中运行</p>
-<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><p>依赖SPM打包，模块的加载逻辑偏重</p>
+        <h3 id="简单页面中使用"><a href="#简单页面中使用" class="headerlink" title="简单页面中使用"></a>简单页面中使用</h3><h4 id="html"><a href="#html" class="headerlink" title="html"></a>html</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>342424242<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="css"><a href="#css" class="headerlink" title="css"></a>css</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;style lang=""&gt;</span><br><span class="line">  .container&#123;position: relative;width:200px;height: 200px;overflow: hidden;&#125;</span><br><span class="line">  .container div&#123;width:1000px;height: 1000px;background-color: #ccc;&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="js"><a href="#js" class="headerlink" title="js"></a>js</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"js/jquery.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&lt;script src=<span class="string">"js/perfect-scrollbar.jquery.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&lt;script src=<span class="string">"js/perfect-scrollbar.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  $(<span class="string">'.container'</span>).perfectScrollbar();</span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<h4 id="其他的调用方法"><a href="#其他的调用方法" class="headerlink" title="其他的调用方法"></a>其他的调用方法</h4><p>1.销毁:<code>$(&#39;.container&#39;).perfectScrollbar(&#39;destroy&#39;);</code><br>2.滚动到某一特定位置:<code>$(&#39;.container&#39;).scrollTop(0);$(&#39;.container&#39;).perfectScrollbar(&#39;update&#39;);</code></p>
+<h3 id="项目中使用"><a href="#项目中使用" class="headerlink" title="项目中使用"></a>项目中使用</h3><h4 id="模块下载"><a href="#模块下载" class="headerlink" title="模块下载"></a>模块下载</h4><p><code>$npm install perfect-scrollbar</code></p>
+<h4 id="html-1"><a href="#html-1" class="headerlink" title="html"></a>html</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"dist/css/perfect-scrollbar.css"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span><br><span class="line">  <span class="selector-id">#container</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>; <span class="comment">/* Or whatever you want (e.g. 400px) */</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h4><p><code>const Ps = require(&#39;perfect-scrollbar&#39;);</code><br><code>import * as Ps from &#39;perfect-scrollbar&#39;;</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> container = <span class="built_in">document</span>.querySelector(<span class="string">'#container'</span>);</span><br><span class="line">Ps.initialize(container, &#123;</span><br><span class="line">  wheelSpeed: <span class="number">2</span>,</span><br><span class="line">  wheelPropagation: <span class="literal">true</span>,</span><br><span class="line">  minScrollbarLength: <span class="number">20</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="其他调用方法"><a href="#其他调用方法" class="headerlink" title="其他调用方法"></a>其他调用方法</h4><p><code>Ps.update(container);</code><br><code>Ps.destroy(container);</code><br><code>container.scrollTop = 0;</code><br>其余API参考<a href="https://github.com/noraesae/perfect-scrollbar" target="_blank" rel="external">githu</a>;</p>
 
       
     </div>
@@ -329,13 +331,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/07/22/js模块规范/CMD/CMD/">CMD</a></p>
+        <p><span>本文标题:</span><a href="/2017/09/06/插件/完美滚动条/">完美滚动条:prefect-scrollbar</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">White</a></p>
-        <p><span>发布时间:</span>2017-07-22, 11:40:01</p>
-        <p><span>最后更新:</span>2017-07-22, 11:43:54</p>
+        <p><span>发布时间:</span>2017-09-06, 20:23:33</p>
+        <p><span>最后更新:</span>2017-09-06, 20:25:03</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/07/22/js模块规范/CMD/CMD/" title="CMD">wttwhite/2017/07/22/js模块规范/CMD/CMD/</a>
-            <span class="copy-path" data-clipboard-text="原文: wttwhite/2017/07/22/js模块规范/CMD/CMD/　　作者: White" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/09/06/插件/完美滚动条/" title="完美滚动条:prefect-scrollbar">wttwhite/2017/09/06/插件/完美滚动条/</a>
+            <span class="copy-path" data-clipboard-text="原文: wttwhite/2017/09/06/插件/完美滚动条/　　作者: White" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -347,16 +349,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/09/06/插件/完美滚动条/">
-                    完美滚动条:prefect-scrollbar
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2017/07/22/js模块规范/AMD/AMD/">
-                    AMD
+                <a href="/2017/07/22/js模块规范/CMD/CMD/">
+                    CMD
                 </a>
             </div>
         
@@ -368,7 +364,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AMD和CMD的区别"><span class="toc-number">2.</span> <span class="toc-text">AMD和CMD的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AMD和CMD的一些相同"><span class="toc-number">3.</span> <span class="toc-text">AMD和CMD的一些相同</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#优点"><span class="toc-number">4.</span> <span class="toc-text">优点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#缺点"><span class="toc-number">5.</span> <span class="toc-text">缺点</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#简单页面中使用"><span class="toc-number">1.</span> <span class="toc-text">简单页面中使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#html"><span class="toc-number">1.1.</span> <span class="toc-text">html</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#css"><span class="toc-number">1.2.</span> <span class="toc-text">css</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#js"><span class="toc-number">1.3.</span> <span class="toc-text">js</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#其他的调用方法"><span class="toc-number">1.4.</span> <span class="toc-text">其他的调用方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#项目中使用"><span class="toc-number">2.</span> <span class="toc-text">项目中使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#模块下载"><span class="toc-number">2.1.</span> <span class="toc-text">模块下载</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#html-1"><span class="toc-number">2.2.</span> <span class="toc-text">html</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#引用"><span class="toc-number">2.3.</span> <span class="toc-text">引用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#其他调用方法"><span class="toc-number">2.4.</span> <span class="toc-text">其他调用方法</span></a></li></ol></li></ol>
         
     </div>
     <style>
@@ -404,7 +400,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"CMD　| White　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"完美滚动条:prefect-scrollbar　| White　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -420,7 +416,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2017/07/22/js模块规范/CMD/CMD/" data-title="CMD" data-url="wttwhite/2017/07/22/js模块规范/CMD/CMD/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2017/09/06/插件/完美滚动条/" data-title="完美滚动条:prefect-scrollbar" data-url="wttwhite/2017/09/06/插件/完美滚动条/"></div>
     <script>
         var duoshuoQuery = {short_name:"wttwhite"};
         var loadComment = function(){
@@ -443,15 +439,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/09/06/插件/完美滚动条/" title="上一篇: 完美滚动条:prefect-scrollbar">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/07/22/js模块规范/AMD/AMD/" title="下一篇: AMD">
+            <a href="/2017/07/22/js模块规范/CMD/CMD/" title="下一篇: CMD">
                 <i class="fa fa-angle-right"></i>
             </a>
         
