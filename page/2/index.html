@@ -192,7 +192,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/backbone/">backbone</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/command-line/">command-line</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jquery/">jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js模块规范/">js模块规范</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/knowledge-point/">knowledge point</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime/">sublime</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/插件/">插件</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/backbone/">backbone</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/command-line/">command-line</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jquery/">jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js模块规范/">js模块规范</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/knowledge/">knowledge</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/knowledge-point/">knowledge point</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime/">sublime</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/插件/">插件</a></li></ul>
                     </div>
                 </section>
                 
@@ -272,6 +272,233 @@
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-matlab/matlab-查看自带函数源代码" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/04/11/matlab/matlab-查看自带函数源代码/" class="article-date">
+      <time datetime="2017-04-11T08:32:13.879Z" itemprop="datePublished">2017-04-11</time>
+</a>
+
+ 
+    <a href="/2017/04/11/matlab/matlab-查看自带函数源代码/#comments" title="查看评论">
+        <i class="fa fa-comments-o" aria-hidden="true"></i>
+        <span class="count-comment"></span>
+        
+            <span class="ds-thread-count"  data-thread-key="2017/04/11/matlab/matlab-查看自带函数源代码/" ></span>
+        
+        
+    </a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/11/matlab/matlab-查看自带函数源代码/">如何查看matlab自带函数的源代码</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <pre><code>matlab会自带一些比较专用或者多用的函数提供给用户（比如：fft,rgb2gray……），我们只需要调用这些函数就可以得到我们所需要的结果，而不必关心函数内部是怎么实现的。但有时候，我们需要将函数的实现移植到其他语言中（或者低版本中没有定义你所需要的函数），就需要了解函数的代码实现。以下是查看matlab源码的方法：
+1.在命令行窗口输入：type 函数名 （type fft）,回车就会出现该函数的源代码和相应的注释。
+2.open 函数名，打开该函数的m文件。
+3.edit 函数名，也是打开该函数的m文件
+matlab中的一些内置函数是看不到源码的，比如：max,min,find……
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/matlab/">matlab</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/command-line/">command-line</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-sublime/sublime vue" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/28/sublime/sublime vue/" class="article-date">
+      <time datetime="2017-03-28T02:49:58.743Z" itemprop="datePublished">2017-03-28</time>
+</a>
+
+ 
+    <a href="/2017/03/28/sublime/sublime vue/#comments" title="查看评论">
+        <i class="fa fa-comments-o" aria-hidden="true"></i>
+        <span class="count-comment"></span>
+        
+            <span class="ds-thread-count"  data-thread-key="2017/03/28/sublime/sublime vue/" ></span>
+        
+        
+    </a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/28/sublime/sublime vue/">sublime vue 语法高亮插件安装</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>今天用sublime打开*.vue文件，发现代码并没有高亮显示，就知道需要自己安装插件。安装步骤如下：</p>
+<p>1.在sublime中打开Preferences-&gt;Package Control （或者快捷键 Ctrl+Shift+P）;</p>
+<p>2.输入install，选中框选的那一条<br><img src="../imgs/sublime/vue/1.png" alt=""><br>    右下角会出现loading状态<img src="../imgs/sublime/vue/2.png" alt=""></p>
+<p>3.在弹出的框内输入vue，选中Vue Syntax Highlight插件，回车安装即可;</p>
+<p>4.重新打开*.vue文件，代码高亮了表明安装成功。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Web/">Web</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sublime/">sublime</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-markdown/markdown" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/27/markdown/markdown/" class="article-date">
+      <time datetime="2017-03-27T06:33:04.425Z" itemprop="datePublished">2017-03-27</time>
+</a>
+
+ 
+    <a href="/2017/03/27/markdown/markdown/#comments" title="查看评论">
+        <i class="fa fa-comments-o" aria-hidden="true"></i>
+        <span class="count-comment"></span>
+        
+            <span class="ds-thread-count"  data-thread-key="2017/03/27/markdown/markdown/" ></span>
+        
+        
+    </a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/27/markdown/markdown/">markdown</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>duanl<br>    <pre>code</pre></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Web/">Web</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/markdown/">markdown</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-demo/爱心小鱼" class="article article-type-post" itemscope itemprop="blogPost">
   
