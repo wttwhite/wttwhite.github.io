@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hans">
+<html >
 <head>
 
     <!--[if lt IE 9]>
@@ -11,20 +11,20 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="format-detection" content="telephone=no" />
-<meta name="author" content="White" />
+<meta name="author" content="yimi" />
 
 
 
-<meta name="description" content="概述AMD规范其实只有一个主要接口 define(id,dependencies,factory)，它要在声明模块的时候指定所有的依赖dependencies，并且还要当做形参传到factory中，对于依赖的模块提前执行，依赖前置1234define(&quot;module&quot;, [&quot;dep1&quot;, &quot;dep2&quot;], function(d1, d2) &amp;#123;    return someExported">
+<meta name="description" content="概述AMD规范其实只有一个主要接口 define(id,dependencies,factory)，它要在声明模块的时候指定所有的依赖dependencies，并且还要当做形参传到factory中，对于依赖的模块提前执行，依赖前置define(&quot;module&quot;, [&quot;dep1&quot;, &quot;dep2&quot;], function(d1, d2) &amp;#123;    return someExportedValu">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AMD">
-<meta property="og:url" content="wttwhite/2017/07/22/js模块规范/AMD/AMD/index.html">
-<meta property="og:site_name" content="White">
-<meta property="og:description" content="概述AMD规范其实只有一个主要接口 define(id,dependencies,factory)，它要在声明模块的时候指定所有的依赖dependencies，并且还要当做形参传到factory中，对于依赖的模块提前执行，依赖前置1234define(&quot;module&quot;, [&quot;dep1&quot;, &quot;dep2&quot;], function(d1, d2) &amp;#123;    return someExported">
+<meta property="og:url" content="http://wttwhite.github.io/2017/07/22/js模块规范/AMD/AMD/index.html">
+<meta property="og:site_name" content="blog">
+<meta property="og:description" content="概述AMD规范其实只有一个主要接口 define(id,dependencies,factory)，它要在声明模块的时候指定所有的依赖dependencies，并且还要当做形参传到factory中，对于依赖的模块提前执行，依赖前置define(&quot;module&quot;, [&quot;dep1&quot;, &quot;dep2&quot;], function(d1, d2) &amp;#123;    return someExportedValu">
 <meta property="og:updated_time" content="2017-07-22T03:42:42.661Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AMD">
-<meta name="twitter:description" content="概述AMD规范其实只有一个主要接口 define(id,dependencies,factory)，它要在声明模块的时候指定所有的依赖dependencies，并且还要当做形参传到factory中，对于依赖的模块提前执行，依赖前置1234define(&quot;module&quot;, [&quot;dep1&quot;, &quot;dep2&quot;], function(d1, d2) &amp;#123;    return someExported">
+<meta name="twitter:description" content="概述AMD规范其实只有一个主要接口 define(id,dependencies,factory)，它要在声明模块的时候指定所有的依赖dependencies，并且还要当做形参传到factory中，对于依赖的模块提前执行，依赖前置define(&quot;module&quot;, [&quot;dep1&quot;, &quot;dep2&quot;], function(d1, d2) &amp;#123;    return someExportedValu">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -34,8 +34,6 @@
     <link rel="shortcut icon" href="/img/favicon.jpeg">
 
 
-
-    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
 
 
 
@@ -54,7 +52,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>AMD | White</title>
+<title>AMD | blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -62,7 +60,7 @@
 <script>
     var yiliaConfig = {
         fancybox: true,
-        animate: true,
+        animate: false,
         isHome: false,
         isPost: true,
         isArchive: false,
@@ -99,11 +97,9 @@
             <img src="/img/author.jpeg" class="animated zoomIn">
         </a>
         <hgroup>
-          <h1 class="header-author"><a href="/">White</a></h1>
+          <h1 class="header-author"><a href="/">yimi</a></h1>
         </hgroup>
 
-        
-        <p class="header-subtitle">The sandgrass remembers the time we lost</p>
         
 
         
@@ -170,8 +166,6 @@
                         
                             <li><a href="/tags/">标签云</a></li>
                         
-                            <li><a href="/about/">关于我</a></li>
-                        
                         </ul>
                     </nav>
                     <nav class="header-nav">
@@ -205,7 +199,7 @@
                     
                       <a class="main-nav-link switch-friends-link" href="http://cheesemucha.cn">Echo</a>
                     
-                      <a class="main-nav-link switch-friends-link" href="https://jyzwf.github.io/">弦冰</a>
+                      <a class="main-nav-link switch-friends-link" href="https://jyzwf.ttps://pages.github.com/">弦冰</a>
                     
                     </div>
                 </section>
@@ -227,7 +221,7 @@
       <nav id="mobile-nav">
       <div class="overlay">
           <div class="slider-trigger"></div>
-          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">White</a></h1>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">yimi</a></h1>
       </div>
     <div class="intrude-less">
         <header id="header" class="inner">
@@ -235,10 +229,8 @@
                 <img src="/img/author.jpeg" class="animated zoomIn">
             </a>
             <hgroup>
-              <h1 class="header-author"><a href="/" title="回到主页">White</a></h1>
+              <h1 class="header-author"><a href="/" title="回到主页">yimi</a></h1>
             </hgroup>
-            
-            <p class="header-subtitle">The sandgrass remembers the time we lost</p>
             
             <nav class="header-menu">
                 <ul>
@@ -248,8 +240,6 @@
                     <li><a href="/archives/">所有文章</a></li>
                 
                     <li><a href="/tags/">标签云</a></li>
-                
-                    <li><a href="/about/">关于我</a></li>
                 
                 <div class="clearfix"></div>
                 </ul>
@@ -311,13 +301,13 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>AMD规范其实只有一个主要接口 <code>define(id,dependencies,factory)</code>，它要在声明模块的时候指定所有的依赖<code>dependencies</code>，并且还要当做形参传到<code>factory</code>中，对于依赖的模块提前执行，依赖前置<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">define(<span class="string">"module"</span>, [<span class="string">"dep1"</span>, <span class="string">"dep2"</span>], <span class="function"><span class="keyword">function</span>(<span class="params">d1, d2</span>) </span>&#123;  </span><br><span class="line">  <span class="keyword">return</span> someExportedValue;  </span><br><span class="line">&#125;);  </span><br><span class="line"><span class="built_in">require</span>([<span class="string">"module"</span>, <span class="string">"../file"</span>], <span class="function"><span class="keyword">function</span>(<span class="params">module, file</span>) </span>&#123; <span class="comment">/* ... */</span> &#125;);</span><br></pre></td></tr></table></figure></p>
-<h3 id="require函数调用模块"><a href="#require函数调用模块" class="headerlink" title="require函数调用模块"></a>require函数调用模块<a id="more"></a></h3><p>AMD也采用<code>require()</code>语句加载模块<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>([<span class="string">'math'</span>], <span class="function"><span class="keyword">function</span> (<span class="params">math</span>) </span>&#123;</span><br><span class="line">　　math.add(<span class="number">2</span>, <span class="number">3</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+        <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>AMD规范其实只有一个主要接口 <code>define(id,dependencies,factory)</code>，它要在声明模块的时候指定所有的依赖<code>dependencies</code>，并且还要当做形参传到<code>factory</code>中，对于依赖的模块提前执行，依赖前置<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">define(<span class="string">"module"</span>, [<span class="string">"dep1"</span>, <span class="string">"dep2"</span>], <span class="function"><span class="keyword">function</span>(<span class="params">d1, d2</span>) </span>&#123;  </span><br><span class="line">  <span class="keyword">return</span> someExportedValue;  </span><br><span class="line">&#125;);  </span><br><span class="line"><span class="built_in">require</span>([<span class="string">"module"</span>, <span class="string">"../file"</span>], <span class="function"><span class="keyword">function</span>(<span class="params">module, file</span>) </span>&#123; <span class="comment">/* ... */</span> &#125;);</span><br></pre></td></tr></table></figure></p>
+<h3 id="require函数调用模块"><a href="#require函数调用模块" class="headerlink" title="require函数调用模块"></a>require函数调用模块<a id="more"></a></h3><p>AMD也采用<code>require()</code>语句加载模块<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">require</span>([<span class="string">'math'</span>], <span class="function"><span class="keyword">function</span> (<span class="params">math</span>) </span>&#123;</span><br><span class="line">　　math.add(<span class="number">2</span>, <span class="number">3</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
 <p>第一个参数是一个数组，里面的成员就是要加载的模块；第二个参数<code>callback</code>，则是加载成功之后的回调函数。<br><code>math.add()</code>与<code>math</code>模块加载不是同步的，浏览器不会发生假死。所以很显然，AMD比较适合浏览器环境。</p>
-<h3 id="define-函数定义模块"><a href="#define-函数定义模块" class="headerlink" title="define()函数定义模块"></a>define()函数定义模块</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">define(</span><br><span class="line">    <span class="comment">//这个模块的名称</span></span><br><span class="line">    <span class="string">"types/Manager"</span>,</span><br><span class="line">    <span class="comment">//依赖的模块</span></span><br><span class="line">    [<span class="string">"types/Employee"</span>],</span><br><span class="line">    <span class="comment">//函数执行时，所有依赖项加载。这个函数的参数依赖上述模块。</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> (<span class="params">Employee</span>) </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">Manager</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.reports = [];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//开始执行</span></span><br><span class="line">        Manager.prototype = <span class="keyword">new</span> Employee();</span><br><span class="line">        <span class="comment">//返回经理构造函数可以由其他模块的应用。</span></span><br><span class="line">        <span class="keyword">return</span> Manager;</span><br><span class="line">    &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<h4 id="example"><a href="#example" class="headerlink" title="example"></a>example</h4><p>创建一个名为”alpha”的模块，使用了require，exports，和名为”beta”的模块:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">define(<span class="string">"alpha"</span>, [<span class="string">"require"</span>, <span class="string">"exports"</span>, <span class="string">"beta"</span>], <span class="function"><span class="keyword">function</span> (<span class="params">require, exports, beta</span>) </span>&#123;</span><br><span class="line">   exports.verb = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">       <span class="keyword">return</span> beta.verb();</span><br><span class="line">       <span class="comment">//或者:</span></span><br><span class="line">       <span class="comment">//return require("beta").verb();</span></span><br><span class="line">   &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-<p>一个返回对象的匿名模块：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">define([<span class="string">"alpha"</span>], <span class="function"><span class="keyword">function</span> (<span class="params">alpha</span>) </span>&#123;</span><br><span class="line">   <span class="keyword">return</span> &#123;</span><br><span class="line">     verb: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">       <span class="keyword">return</span> alpha.verb() + <span class="number">2</span>;</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-<p>一个使用了简单CommonJS转换的模块定义：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">define(<span class="function"><span class="keyword">function</span> (<span class="params">require, exports, module</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="built_in">require</span>(<span class="string">'a'</span>),</span><br><span class="line">        b = <span class="built_in">require</span>(<span class="string">'b'</span>);</span><br><span class="line"></span><br><span class="line">    exports.action = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<h3 id="define-函数定义模块"><a href="#define-函数定义模块" class="headerlink" title="define()函数定义模块"></a>define()函数定义模块</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">define(</span><br><span class="line">    <span class="comment">//这个模块的名称</span></span><br><span class="line">    <span class="string">"types/Manager"</span>,</span><br><span class="line">    <span class="comment">//依赖的模块</span></span><br><span class="line">    [<span class="string">"types/Employee"</span>],</span><br><span class="line">    <span class="comment">//函数执行时，所有依赖项加载。这个函数的参数依赖上述模块。</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> (<span class="params">Employee</span>) </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">Manager</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.reports = [];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//开始执行</span></span><br><span class="line">        Manager.prototype = <span class="keyword">new</span> Employee();</span><br><span class="line">        <span class="comment">//返回经理构造函数可以由其他模块的应用。</span></span><br><span class="line">        <span class="keyword">return</span> Manager;</span><br><span class="line">    &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h4 id="example"><a href="#example" class="headerlink" title="example"></a>example</h4><p>创建一个名为”alpha”的模块，使用了require，exports，和名为”beta”的模块:<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">define(<span class="string">"alpha"</span>, [<span class="string">"require"</span>, <span class="string">"exports"</span>, <span class="string">"beta"</span>], <span class="function"><span class="keyword">function</span> (<span class="params">require, exports, beta</span>) </span>&#123;</span><br><span class="line">   exports.verb = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">       <span class="keyword">return</span> beta.verb();</span><br><span class="line">       <span class="comment">//或者:</span></span><br><span class="line">       <span class="comment">//return require("beta").verb();</span></span><br><span class="line">   &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>一个返回对象的匿名模块：<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">define([<span class="string">"alpha"</span>], <span class="function"><span class="keyword">function</span> (<span class="params">alpha</span>) </span>&#123;</span><br><span class="line">   <span class="keyword">return</span> &#123;</span><br><span class="line">     verb: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">       <span class="keyword">return</span> alpha.verb() + <span class="number">2</span>;</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>一个使用了简单CommonJS转换的模块定义：<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">define(<span class="function"><span class="keyword">function</span> (<span class="params">require, exports, module</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="built_in">require</span>(<span class="string">'a'</span>),</span><br><span class="line">        b = <span class="built_in">require</span>(<span class="string">'b'</span>);</span><br><span class="line"></span><br><span class="line">    exports.action = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
 <h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><p>适合在浏览器环境异步加载<br>并行加载多个模块</p>
 <h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><p>提高开发成本，代码阅读和书写比较困难<br>不符合通用的模块思维方式，是一种妥协的实现</p>
 
@@ -329,12 +319,12 @@
     
     <div class="copyright">
         <p><span>本文标题:</span><a href="/2017/07/22/js模块规范/AMD/AMD/">AMD</a></p>
-        <p><span>文章作者:</span><a href="/" title="回到主页">White</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">yimi</a></p>
         <p><span>发布时间:</span>2017-07-22, 11:40:01</p>
         <p><span>最后更新:</span>2017-07-22, 11:42:42</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/07/22/js模块规范/AMD/AMD/" title="AMD">wttwhite/2017/07/22/js模块规范/AMD/AMD/</a>
-            <span class="copy-path" data-clipboard-text="原文: wttwhite/2017/07/22/js模块规范/AMD/AMD/　　作者: White" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/07/22/js模块规范/AMD/AMD/" title="AMD">http://wttwhite.github.io/2017/07/22/js模块规范/AMD/AMD/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://wttwhite.github.io/2017/07/22/js模块规范/AMD/AMD/　　作者: yimi" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -375,8 +365,8 @@
         .left-col .switch-area {
             display: none;
         }
-        .toc-level-6 i,
-        .toc-level-6 ol {
+        .toc-level-3 i,
+        .toc-level-3 ol {
             display: none !important;
         }
     </style>
@@ -403,7 +393,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"AMD　| White　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"AMD　| blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -416,25 +406,6 @@
 
 
 
-    
-      <div class="duoshuo" id="comments">
-    <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2017/07/22/js模块规范/AMD/AMD/" data-title="AMD" data-url="wttwhite/2017/07/22/js模块规范/AMD/AMD/"></div>
-    <script>
-        var duoshuoQuery = {short_name:"wttwhite"};
-        var loadComment = function(){
-            var d = document, s = d.createElement('script');
-            s.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-            s.async = true; s.charset = 'UTF-8';
-            (d.head || d.body).appendChild(s);
-        }
-
-        
-    </script>
-    
-    <script> loadComment(); </script>
-
-</div>
     
 
 
@@ -456,7 +427,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/10/15/python/python/">python基础知识</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/15/正则表达式/正则表达式/">正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/06/插件/完美滚动条/">完美滚动条:prefect-scrollbar</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/js模块规范/CMD/CMD/">CMD</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/js模块规范/AMD/AMD/">AMD</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/js模块规范/commonjs/commomjs/">CommonJS</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/backbone/first/">backbone零基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/backbone/second/">backbone使用Collection</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/11/vue/vue_first/">vue知识总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/11/matlab/matlab-查看自带函数源代码/">如何查看matlab自带函数的源代码</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/28/sublime/sublime vue/">sublime vue 语法高亮插件安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/27/markdown/markdown/">markdown</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/03/demo/爱心小鱼/">爱心小鱼</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/30/myLife/">随记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/07/jquery/jQuery-插件编写/">jQuery插件的编写</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/14/javascript/避免js冲突/">避免JS冲突</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/13/javascript/JS-object/">Js对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/08/javascript/JS-prototype/">Js原型链</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/05/10/matlab-查看自带函数源代码/">如何查看matlab自带函数的源代码</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/15/python/python/">python基础知识</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/15/正则表达式/正则表达式/">正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/06/插件/完美滚动条/">完美滚动条:prefect-scrollbar</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/js模块规范/CMD/CMD/">CMD</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/js模块规范/AMD/AMD/">AMD</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/js模块规范/commonjs/commomjs/">CommonJS</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/backbone/second/">backbone使用Collection</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/backbone/first/">backbone零基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/11/vue/vue_first/">vue知识总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/11/matlab/matlab-查看自带函数源代码/">如何查看matlab自带函数的源代码</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/28/sublime/sublime vue/">sublime vue 语法高亮插件安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/27/markdown/markdown/">markdown</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/03/demo/爱心小鱼/">爱心小鱼</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/30/myLife/">随记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/07/jquery/jQuery-插件编写/">jQuery插件的编写</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/14/javascript/避免js冲突/">避免JS冲突</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/13/javascript/JS-object/">Js对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/08/javascript/JS-prototype/">Js原型链</a></li></ul>
 
 
 
@@ -470,34 +441,36 @@
         <div id="footer-info">
             <div class="footer-left">
                 <i class="fa fa-copyright"></i> 
-                2016-2017 White
+                2016-2018 yimi
             </div>
             <div class="footer-right">
                 <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
             </div>
         </div>
         
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
     </div>
 </footer>
     </div>
     
 <script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
-
-    <script>
-        $(document).ready(function() {
-            var iPad = window.navigator.userAgent.indexOf('iPad');
-            if (iPad > -1 || $(".left-col").css("display") === "none") {
-                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
-                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
-                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
-            }
-            else {
-                var backgroundnum = 5;
-                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
-                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
-            }
-        })
-    </script>
 
 
 
@@ -534,14 +507,14 @@ MathJax.Hub.Queue(function() {
     
         var oOpenInNew = {
             
-             title: "a.article-title, .article-more-link a", 
+            
              post: ".article-entry a[href], .copyright a[href]", 
-             tags: ".article-tag a", 
-             categories: ".article-category a, a.tag-list-link", 
-             articleNav: "#article-nav a, #post-nav-button a", 
-             archives: ".archive-article-title", 
-             miniArchives: "a.post-list-link", 
-             menu: ".header-menu a", 
+            
+            
+            
+            
+            
+            
              friends: "#js-friends a", 
              socail: ".social a" 
         }
@@ -550,23 +523,6 @@ MathJax.Hub.Queue(function() {
         }
     
 </script>
-
-    <script>
-        var originTitle = document.title;
-        var titleTime;
-        document.addEventListener("visibilitychange", function() {
-            if (document.hidden) {
-                document.title = "你不看我了吗？T-T" + originTitle;
-                clearTimeout(titleTime);
-            }
-            else {
-                document.title = "被你看到啦~ *-*" + originTitle;
-                titleTime = setTimeout(function() {
-                    document.title = originTitle;
-                }, 2000);
-            }
-        })
-    </script>
 
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>

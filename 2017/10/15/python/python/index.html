@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hans">
+<html >
 <head>
 
     <!--[if lt IE 9]>
@@ -11,7 +11,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="format-detection" content="telephone=no" />
-<meta name="author" content="White" />
+<meta name="author" content="yimi" />
 
 
 
@@ -19,8 +19,8 @@
 注释:大小写敏感r’’表示’’里的字符不转义以:结束时,锁紧的语句视为代码块空值:None除法:/ 得到浮点数地板除:// 得到整数取余:%输入:name = input(‘name:’);输出:print();转换成整数:int();input()输入的是str,与数据进行比较时要转换类型">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python基础知识">
-<meta property="og:url" content="wttwhite/2017/10/15/python/python/index.html">
-<meta property="og:site_name" content="White">
+<meta property="og:url" content="http://wttwhite.github.io/2017/10/15/python/python/index.html">
+<meta property="og:site_name" content="blog">
 <meta property="og:description" content="知识点因为感觉学的编程语言一多,很多的规则都会搞混,所以就整理一下一些使用方法(看廖雪峰官网的总结版本3)
 注释:大小写敏感r’’表示’’里的字符不转义以:结束时,锁紧的语句视为代码块空值:None除法:/ 得到浮点数地板除:// 得到整数取余:%输入:name = input(‘name:’);输出:print();转换成整数:int();input()输入的是str,与数据进行比较时要转换类型">
 <meta property="og:updated_time" content="2017-10-15T15:46:28.170Z">
@@ -37,8 +37,6 @@
     <link rel="shortcut icon" href="/img/favicon.jpeg">
 
 
-
-    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
 
 
 
@@ -57,7 +55,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>python基础知识 | White</title>
+<title>python基础知识 | blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -65,7 +63,7 @@
 <script>
     var yiliaConfig = {
         fancybox: true,
-        animate: true,
+        animate: false,
         isHome: false,
         isPost: true,
         isArchive: false,
@@ -102,11 +100,9 @@
             <img src="/img/author.jpeg" class="animated zoomIn">
         </a>
         <hgroup>
-          <h1 class="header-author"><a href="/">White</a></h1>
+          <h1 class="header-author"><a href="/">yimi</a></h1>
         </hgroup>
 
-        
-        <p class="header-subtitle">The sandgrass remembers the time we lost</p>
         
 
         
@@ -173,8 +169,6 @@
                         
                             <li><a href="/tags/">标签云</a></li>
                         
-                            <li><a href="/about/">关于我</a></li>
-                        
                         </ul>
                     </nav>
                     <nav class="header-nav">
@@ -208,7 +202,7 @@
                     
                       <a class="main-nav-link switch-friends-link" href="http://cheesemucha.cn">Echo</a>
                     
-                      <a class="main-nav-link switch-friends-link" href="https://jyzwf.github.io/">弦冰</a>
+                      <a class="main-nav-link switch-friends-link" href="https://jyzwf.ttps://pages.github.com/">弦冰</a>
                     
                     </div>
                 </section>
@@ -230,7 +224,7 @@
       <nav id="mobile-nav">
       <div class="overlay">
           <div class="slider-trigger"></div>
-          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">White</a></h1>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">yimi</a></h1>
       </div>
     <div class="intrude-less">
         <header id="header" class="inner">
@@ -238,10 +232,8 @@
                 <img src="/img/author.jpeg" class="animated zoomIn">
             </a>
             <hgroup>
-              <h1 class="header-author"><a href="/" title="回到主页">White</a></h1>
+              <h1 class="header-author"><a href="/" title="回到主页">yimi</a></h1>
             </hgroup>
-            
-            <p class="header-subtitle">The sandgrass remembers the time we lost</p>
             
             <nav class="header-menu">
                 <ul>
@@ -251,8 +243,6 @@
                     <li><a href="/archives/">所有文章</a></li>
                 
                     <li><a href="/tags/">标签云</a></li>
-                
-                    <li><a href="/about/">关于我</a></li>
                 
                 <div class="clearfix"></div>
                 </ul>
@@ -322,16 +312,16 @@
 <h3 id="“对象”"><a href="#“对象”" class="headerlink" title="“对象”"></a>“对象”</h3><h4 id="dict"><a href="#dict" class="headerlink" title="dict"></a>dict</h4><p>Python内置了字典：dict的支持，dict全称dictionary，在其他语言中也称为map，使用键-值（key-value）存储，具有极快的查找速度。<br>有点类似js中的对象<br>d = {‘a’:65,’b’:66}<br>判断key是否存在:’a’ in d =&gt; True ; d.get(‘a’)<br>删除: d.pop(key)<br><strong>请务必注意</strong>，dict内部存放的顺序和key放入的顺序是没有关系的。<br>和list比较，dict有以下几个特点：<br>1.查找和插入的速度极快，不会随着key的增加而变慢；<br>2.需要占用大量的内存，内存浪费多。<br>而list相反：<br>1.查找和插入的时间随着元素的增加而增加；<br>2.占用空间小，浪费内存很少。<br>所以，dict是用空间来换取时间的一种方法。<br>dict可以用在需要高速查找的很多地方。<br>这个通过key计算位置的算法称为哈希算法（Hash）。</p>
 <h4 id="set"><a href="#set" class="headerlink" title="set"></a>set</h4><p>一组key的集合,但不存储value,set中没有重复的key<br>要创建一个set，需要提供一个list作为输入集合：<br>s = set([1,2,2,3,3]) =&gt; {1,2,3}<br>添加元素:s.add(key)<br>删除元素:s.remove(key)<br>交集: s1 &amp; s2<br>并集: s1 | s2</p>
 <h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><p><a href="!http://docs.python.org/3/library/functions.html">官方文档</a></p>
-<h4 id="定义函数"><a href="#定义函数" class="headerlink" title="定义函数"></a>定义函数</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">my_abs</span><span class="params">(x)</span>:</span></span><br><span class="line">  <span class="keyword">if</span> <span class="keyword">not</span> isinstance(x, (int, float)):<span class="comment">#对参数类型做检查，只允许整数和浮点数类型的参数。</span></span><br><span class="line">    <span class="keyword">raise</span> TypeError(<span class="string">'bad operand type'</span>)</span><br><span class="line">  <span class="keyword">if</span> x &lt; <span class="number">0</span>:</span><br><span class="line">    <span class="keyword">return</span> -x</span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">return</span> x</span><br></pre></td></tr></table></figure>
+<h4 id="定义函数"><a href="#定义函数" class="headerlink" title="定义函数"></a>定义函数</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">my_abs</span><span class="params">(x)</span>:</span></span><br><span class="line">  <span class="keyword">if</span> <span class="keyword">not</span> isinstance(x, (int, float)):<span class="comment">#对参数类型做检查，只允许整数和浮点数类型的参数。</span></span><br><span class="line">    <span class="keyword">raise</span> TypeError(<span class="string">'bad operand type'</span>)</span><br><span class="line">  <span class="keyword">if</span> x &lt; <span class="number">0</span>:</span><br><span class="line">    <span class="keyword">return</span> -x</span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">return</span> x</span><br></pre></td></tr></table></figure>
 <p>如果将函数my_abs()保存在absfun.py文件中,用from absfun import my_abs来导入my_abs()函数</p>
-<h4 id="返回多个值"><a href="#返回多个值" class="headerlink" title="返回多个值"></a>返回多个值</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math <span class="comment">#import math语句表示导入math包，并允许后续代码引用math包里的sin、cos等函数。</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">move</span><span class="params">(x, y, step, angle=<span class="number">0</span>)</span>:</span></span><br><span class="line">    nx = x + step * math.cos(angle)</span><br><span class="line">    ny = y - step * math.sin(angle)</span><br><span class="line">    <span class="keyword">return</span> nx, ny</span><br></pre></td></tr></table></figure>
-<p>其实返回的是一个tuple,仍然是单一值<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>r = move(<span class="number">100</span>, <span class="number">100</span>, <span class="number">60</span>, math.pi / <span class="number">6</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(r)</span><br><span class="line">(<span class="number">151.96152422706632</span>, <span class="number">70.0</span>)</span><br></pre></td></tr></table></figure></p>
+<h4 id="返回多个值"><a href="#返回多个值" class="headerlink" title="返回多个值"></a>返回多个值</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> math <span class="comment">#import math语句表示导入math包，并允许后续代码引用math包里的sin、cos等函数。</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">move</span><span class="params">(x, y, step, angle=<span class="number">0</span>)</span>:</span></span><br><span class="line">    nx = x + step * math.cos(angle)</span><br><span class="line">    ny = y - step * math.sin(angle)</span><br><span class="line">    <span class="keyword">return</span> nx, ny</span><br></pre></td></tr></table></figure>
+<p>其实返回的是一个tuple,仍然是单一值<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>r = move(<span class="number">100</span>, <span class="number">100</span>, <span class="number">60</span>, math.pi / <span class="number">6</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(r)</span><br><span class="line">(<span class="number">151.96152422706632</span>, <span class="number">70.0</span>)</span><br></pre></td></tr></table></figure></p>
 <h4 id="参数组合"><a href="#参数组合" class="headerlink" title="参数组合"></a>参数组合</h4><p>必选参数 默认参数 可变参数 关键字参数 命名关键字参数<br><a href="!https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/001431752945034eb82ac80a3e64b9bb4929b16eeed1eb9000">函数的参数</a></p>
-<h4 id="尾递归"><a href="#尾递归" class="headerlink" title="尾递归"></a>尾递归</h4><p>递归调用过深会导致栈溢出,可以通过尾递归来避免<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#函数返回时调用自身本身,且return语句不能包含表达式</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fact_iter</span><span class="params">(num, product)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> num == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> product</span><br><span class="line">    <span class="keyword">return</span> fact_iter(num - <span class="number">1</span>, num * product) <span class="comment">#仅返回递归函数本身，num - 1和num * product在函数调用前就会被计算，不影响函数调用。</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="语句"><a href="#语句" class="headerlink" title="语句"></a>语句</h3><h4 id="条件判断"><a href="#条件判断" class="headerlink" title="条件判断"></a>条件判断</h4><p>可以用elif做到更细致的判断<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">age = <span class="number">20</span></span><br><span class="line"><span class="keyword">if</span> age &gt;= <span class="number">18</span>:</span><br><span class="line">  print(<span class="string">'age is'</span>,age)</span><br><span class="line"><span class="keyword">elif</span> age &gt;= <span class="number">6</span>:</span><br><span class="line">  print(<span class="string">'teenager'</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">  print(<span class="string">'kid'</span>)</span><br></pre></td></tr></table></figure></p>
-<h4 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h4><h5 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">names = [<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>]</span><br><span class="line"><span class="keyword">for</span> name <span class="keyword">in</span> names:</span><br><span class="line">  print(name)</span><br></pre></td></tr></table></figure>
-<p>range():生成一个整数序列<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sum = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">101</span>): <span class="comment">#生成0-100的整数序列</span></span><br><span class="line">  sum = sum + x</span><br><span class="line">print(sum)</span><br></pre></td></tr></table></figure></p>
-<h5 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sum = <span class="number">0</span></span><br><span class="line">n = <span class="number">99</span></span><br><span class="line"><span class="keyword">while</span> n &gt; <span class="number">0</span>:</span><br><span class="line">  sum = sum + n </span><br><span class="line">  n = n - <span class="number">2</span></span><br><span class="line">print(sum)</span><br></pre></td></tr></table></figure>
+<h4 id="尾递归"><a href="#尾递归" class="headerlink" title="尾递归"></a>尾递归</h4><p>递归调用过深会导致栈溢出,可以通过尾递归来避免<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#函数返回时调用自身本身,且return语句不能包含表达式</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fact_iter</span><span class="params">(num, product)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> num == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> product</span><br><span class="line">    <span class="keyword">return</span> fact_iter(num - <span class="number">1</span>, num * product) <span class="comment">#仅返回递归函数本身，num - 1和num * product在函数调用前就会被计算，不影响函数调用。</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="语句"><a href="#语句" class="headerlink" title="语句"></a>语句</h3><h4 id="条件判断"><a href="#条件判断" class="headerlink" title="条件判断"></a>条件判断</h4><p>可以用elif做到更细致的判断<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">age = <span class="number">20</span></span><br><span class="line"><span class="keyword">if</span> age &gt;= <span class="number">18</span>:</span><br><span class="line">  print(<span class="string">'age is'</span>,age)</span><br><span class="line"><span class="keyword">elif</span> age &gt;= <span class="number">6</span>:</span><br><span class="line">  print(<span class="string">'teenager'</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">  print(<span class="string">'kid'</span>)</span><br></pre></td></tr></table></figure></p>
+<h4 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h4><h5 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">names = [<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>]</span><br><span class="line"><span class="keyword">for</span> name <span class="keyword">in</span> names:</span><br><span class="line">  print(name)</span><br></pre></td></tr></table></figure>
+<p>range():生成一个整数序列<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sum = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">101</span>): <span class="comment">#生成0-100的整数序列</span></span><br><span class="line">  sum = sum + x</span><br><span class="line">print(sum)</span><br></pre></td></tr></table></figure></p>
+<h5 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sum = <span class="number">0</span></span><br><span class="line">n = <span class="number">99</span></span><br><span class="line"><span class="keyword">while</span> n &gt; <span class="number">0</span>:</span><br><span class="line">  sum = sum + n </span><br><span class="line">  n = n - <span class="number">2</span></span><br><span class="line">print(sum)</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -340,12 +330,12 @@
     
     <div class="copyright">
         <p><span>本文标题:</span><a href="/2017/10/15/python/python/">python基础知识</a></p>
-        <p><span>文章作者:</span><a href="/" title="回到主页">White</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">yimi</a></p>
         <p><span>发布时间:</span>2017-10-15, 23:00:49</p>
         <p><span>最后更新:</span>2017-10-15, 23:46:28</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/10/15/python/python/" title="python基础知识">wttwhite/2017/10/15/python/python/</a>
-            <span class="copy-path" data-clipboard-text="原文: wttwhite/2017/10/15/python/python/　　作者: White" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/10/15/python/python/" title="python基础知识">http://wttwhite.github.io/2017/10/15/python/python/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://wttwhite.github.io/2017/10/15/python/python/　　作者: yimi" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -356,6 +346,12 @@
 
 
     <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2018/05/10/matlab-查看自带函数源代码/">
+                    如何查看matlab自带函数的源代码
+                </a>
+            </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
@@ -380,8 +376,8 @@
         .left-col .switch-area {
             display: none;
         }
-        .toc-level-6 i,
-        .toc-level-6 ol {
+        .toc-level-3 i,
+        .toc-level-3 ol {
             display: none !important;
         }
     </style>
@@ -408,7 +404,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"python基础知识　| White　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"python基础知识　| blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -422,32 +418,15 @@
 
 
     
-      <div class="duoshuo" id="comments">
-    <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2017/10/15/python/python/" data-title="python基础知识" data-url="wttwhite/2017/10/15/python/python/"></div>
-    <script>
-        var duoshuoQuery = {short_name:"wttwhite"};
-        var loadComment = function(){
-            var d = document, s = d.createElement('script');
-            s.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-            s.async = true; s.charset = 'UTF-8';
-            (d.head || d.body).appendChild(s);
-        }
-
-        
-    </script>
-    
-    <script> loadComment(); </script>
-
-</div>
-    
 
 
 
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2018/05/10/matlab-查看自带函数源代码/" title="上一篇: 如何查看matlab自带函数的源代码">
+                <i class="fa fa-angle-left"></i>
+            </a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
@@ -459,7 +438,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/10/15/python/python/">python基础知识</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/15/正则表达式/正则表达式/">正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/06/插件/完美滚动条/">完美滚动条:prefect-scrollbar</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/js模块规范/CMD/CMD/">CMD</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/js模块规范/AMD/AMD/">AMD</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/js模块规范/commonjs/commomjs/">CommonJS</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/backbone/first/">backbone零基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/backbone/second/">backbone使用Collection</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/11/vue/vue_first/">vue知识总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/11/matlab/matlab-查看自带函数源代码/">如何查看matlab自带函数的源代码</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/28/sublime/sublime vue/">sublime vue 语法高亮插件安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/27/markdown/markdown/">markdown</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/03/demo/爱心小鱼/">爱心小鱼</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/30/myLife/">随记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/07/jquery/jQuery-插件编写/">jQuery插件的编写</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/14/javascript/避免js冲突/">避免JS冲突</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/13/javascript/JS-object/">Js对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/08/javascript/JS-prototype/">Js原型链</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/05/10/matlab-查看自带函数源代码/">如何查看matlab自带函数的源代码</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/15/python/python/">python基础知识</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/15/正则表达式/正则表达式/">正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/06/插件/完美滚动条/">完美滚动条:prefect-scrollbar</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/js模块规范/CMD/CMD/">CMD</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/js模块规范/AMD/AMD/">AMD</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/js模块规范/commonjs/commomjs/">CommonJS</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/backbone/second/">backbone使用Collection</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/backbone/first/">backbone零基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/11/vue/vue_first/">vue知识总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/11/matlab/matlab-查看自带函数源代码/">如何查看matlab自带函数的源代码</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/28/sublime/sublime vue/">sublime vue 语法高亮插件安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/27/markdown/markdown/">markdown</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/03/demo/爱心小鱼/">爱心小鱼</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/30/myLife/">随记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/07/jquery/jQuery-插件编写/">jQuery插件的编写</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/14/javascript/避免js冲突/">避免JS冲突</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/13/javascript/JS-object/">Js对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/08/javascript/JS-prototype/">Js原型链</a></li></ul>
 
 
 
@@ -473,34 +452,36 @@
         <div id="footer-info">
             <div class="footer-left">
                 <i class="fa fa-copyright"></i> 
-                2016-2017 White
+                2016-2018 yimi
             </div>
             <div class="footer-right">
                 <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
             </div>
         </div>
         
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
     </div>
 </footer>
     </div>
     
 <script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
-
-    <script>
-        $(document).ready(function() {
-            var iPad = window.navigator.userAgent.indexOf('iPad');
-            if (iPad > -1 || $(".left-col").css("display") === "none") {
-                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
-                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
-                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
-            }
-            else {
-                var backgroundnum = 5;
-                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
-                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
-            }
-        })
-    </script>
 
 
 
@@ -537,14 +518,14 @@ MathJax.Hub.Queue(function() {
     
         var oOpenInNew = {
             
-             title: "a.article-title, .article-more-link a", 
+            
              post: ".article-entry a[href], .copyright a[href]", 
-             tags: ".article-tag a", 
-             categories: ".article-category a, a.tag-list-link", 
-             articleNav: "#article-nav a, #post-nav-button a", 
-             archives: ".archive-article-title", 
-             miniArchives: "a.post-list-link", 
-             menu: ".header-menu a", 
+            
+            
+            
+            
+            
+            
              friends: "#js-friends a", 
              socail: ".social a" 
         }
@@ -553,23 +534,6 @@ MathJax.Hub.Queue(function() {
         }
     
 </script>
-
-    <script>
-        var originTitle = document.title;
-        var titleTime;
-        document.addEventListener("visibilitychange", function() {
-            if (document.hidden) {
-                document.title = "你不看我了吗？T-T" + originTitle;
-                clearTimeout(titleTime);
-            }
-            else {
-                document.title = "被你看到啦~ *-*" + originTitle;
-                titleTime = setTimeout(function() {
-                    document.title = originTitle;
-                }, 2000);
-            }
-        })
-    </script>
 
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>

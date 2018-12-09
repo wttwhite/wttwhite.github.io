@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hans">
+<html >
 <head>
 
     <!--[if lt IE 9]>
@@ -11,22 +11,22 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="format-detection" content="telephone=no" />
-<meta name="author" content="White" />
+<meta name="author" content="yimi" />
 
 
     
     
 
 
-<meta name="description">
+<meta name="description" content="Github个人博客">
 <meta property="og:type" content="website">
-<meta property="og:title" content="White">
-<meta property="og:url" content="wttwhite/index.html">
-<meta property="og:site_name" content="White">
-<meta property="og:description">
+<meta property="og:title" content="blog">
+<meta property="og:url" content="http://wttwhite.github.io/index.html">
+<meta property="og:site_name" content="blog">
+<meta property="og:description" content="Github个人博客">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="White">
-<meta name="twitter:description">
+<meta name="twitter:title" content="blog">
+<meta name="twitter:description" content="Github个人博客">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -36,8 +36,6 @@
     <link rel="shortcut icon" href="/img/favicon.jpeg">
 
 
-
-    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
 
 
 
@@ -52,13 +50,11 @@
 <link rel="stylesheet" href="/css/style.css">
 
 
-    <style> .article { opacity: 0;} </style>
-
 
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>White</title>
+<title>blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -66,7 +62,7 @@
 <script>
     var yiliaConfig = {
         fancybox: true,
-        animate: true,
+        animate: false,
         isHome: true,
         isPost: false,
         isArchive: false,
@@ -103,11 +99,9 @@
             <img src="/img/author.jpeg" class="animated zoomIn">
         </a>
         <hgroup>
-          <h1 class="header-author"><a href="/">White</a></h1>
+          <h1 class="header-author"><a href="/">yimi</a></h1>
         </hgroup>
 
-        
-        <p class="header-subtitle">The sandgrass remembers the time we lost</p>
         
 
         
@@ -174,8 +168,6 @@
                         
                             <li><a href="/tags/">标签云</a></li>
                         
-                            <li><a href="/about/">关于我</a></li>
-                        
                         </ul>
                     </nav>
                     <nav class="header-nav">
@@ -209,7 +201,7 @@
                     
                       <a class="main-nav-link switch-friends-link" href="http://cheesemucha.cn">Echo</a>
                     
-                      <a class="main-nav-link switch-friends-link" href="https://jyzwf.github.io/">弦冰</a>
+                      <a class="main-nav-link switch-friends-link" href="https://jyzwf.ttps://pages.github.com/">弦冰</a>
                     
                     </div>
                 </section>
@@ -231,7 +223,7 @@
       <nav id="mobile-nav">
       <div class="overlay">
           <div class="slider-trigger"></div>
-          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">White</a></h1>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">yimi</a></h1>
       </div>
     <div class="intrude-less">
         <header id="header" class="inner">
@@ -239,10 +231,8 @@
                 <img src="/img/author.jpeg" class="animated zoomIn">
             </a>
             <hgroup>
-              <h1 class="header-author"><a href="/" title="回到主页">White</a></h1>
+              <h1 class="header-author"><a href="/" title="回到主页">yimi</a></h1>
             </hgroup>
-            
-            <p class="header-subtitle">The sandgrass remembers the time we lost</p>
             
             <nav class="header-menu">
                 <ul>
@@ -252,8 +242,6 @@
                     <li><a href="/archives/">所有文章</a></li>
                 
                     <li><a href="/tags/">标签云</a></li>
-                
-                    <li><a href="/about/">关于我</a></li>
                 
                 <div class="clearfix"></div>
                 </ul>
@@ -273,6 +261,74 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-matlab-查看自带函数源代码" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/05/10/matlab-查看自带函数源代码/" class="article-date">
+      <time datetime="2018-05-10T13:20:15.880Z" itemprop="datePublished">2018-05-10</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/10/matlab-查看自带函数源代码/">如何查看matlab自带函数的源代码</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <pre><code>matlab会自带一些比较专用或者多用的函数提供给用户（比如：fft,rgb2gray……），我们只需要调用这些函数就可以得到我们所需要的结果，而不必关心函数内部是怎么实现的。但有时候，我们需要将函数的实现移植到其他语言中（或者低版本中没有定义你所需要的函数），就需要了解函数的代码实现。以下是查看matlab源码的方法：
+1.在命令行窗口输入：type 函数名 （type fft）,回车就会出现该函数的源代码和相应的注释。
+2.open 函数名，打开该函数的m文件。
+3.edit 函数名，也是打开该函数的m文件
+matlab中的一些内置函数是看不到源码的，比如：max,min,find……
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/matlab/">matlab</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/command-line/">command-line</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-python/python" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -280,15 +336,6 @@
       <time datetime="2017-10-15T15:00:49.254Z" itemprop="datePublished">2017-10-15</time>
 </a>
 
- 
-    <a href="/2017/10/15/python/python/#comments" title="查看评论">
-        <i class="fa fa-comments-o" aria-hidden="true"></i>
-        <span class="count-comment"></span>
-        
-            <span class="ds-thread-count"  data-thread-key="2017/10/15/python/python/" ></span>
-        
-        
-    </a>
 
     </div>
   
@@ -333,7 +380,7 @@
 
       
         <p class="article-more-link">
-          <a href="/2017/10/15/python/python/#more">阅读全文 >></a>
+          <a href="/2017/10/15/python/python/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -359,15 +406,6 @@
       <time datetime="2017-10-15T15:00:49.254Z" itemprop="datePublished">2017-10-15</time>
 </a>
 
- 
-    <a href="/2017/10/15/正则表达式/正则表达式/#comments" title="查看评论">
-        <i class="fa fa-comments-o" aria-hidden="true"></i>
-        <span class="count-comment"></span>
-        
-            <span class="ds-thread-count"  data-thread-key="2017/10/15/正则表达式/正则表达式/" ></span>
-        
-        
-    </a>
 
     </div>
   
@@ -451,7 +489,7 @@
 
       
         <p class="article-more-link">
-          <a href="/2017/10/15/正则表达式/正则表达式/#more">阅读全文 >></a>
+          <a href="/2017/10/15/正则表达式/正则表达式/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -477,15 +515,6 @@
       <time datetime="2017-09-06T12:23:33.565Z" itemprop="datePublished">2017-09-06</time>
 </a>
 
- 
-    <a href="/2017/09/06/插件/完美滚动条/#comments" title="查看评论">
-        <i class="fa fa-comments-o" aria-hidden="true"></i>
-        <span class="count-comment"></span>
-        
-            <span class="ds-thread-count"  data-thread-key="2017/09/06/插件/完美滚动条/" ></span>
-        
-        
-    </a>
 
     </div>
   
@@ -508,9 +537,9 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h3 id="简单页面中使用"><a href="#简单页面中使用" class="headerlink" title="简单页面中使用"></a>简单页面中使用</h3><h4 id="html"><a href="#html" class="headerlink" title="html"></a>html</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>342424242<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h4 id="css"><a href="#css" class="headerlink" title="css"></a>css</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;style lang=""&gt;</span><br><span class="line">  .container&#123;position: relative;width:200px;height: 200px;overflow: hidden;&#125;</span><br><span class="line">  .container div&#123;width:1000px;height: 1000px;background-color: #ccc;&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="js"><a href="#js" class="headerlink" title="js"></a>js</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"js/jquery.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&lt;script src=<span class="string">"js/perfect-scrollbar.jquery.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&lt;script src=<span class="string">"js/perfect-scrollbar.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  $(<span class="string">'.container'</span>).perfectScrollbar();</span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+              <h3 id="简单页面中使用"><a href="#简单页面中使用" class="headerlink" title="简单页面中使用"></a>简单页面中使用</h3><h4 id="html"><a href="#html" class="headerlink" title="html"></a>html</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>342424242<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="css"><a href="#css" class="headerlink" title="css"></a>css</h4><figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;style lang=""&gt;</span><br><span class="line">  .container&#123;position: relative;width:200px;height: 200px;overflow: hidden;&#125;</span><br><span class="line">  .container div&#123;width:1000px;height: 1000px;background-color: #ccc;&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="js"><a href="#js" class="headerlink" title="js"></a>js</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script src=<span class="string">"js/jquery.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&lt;script src=<span class="string">"js/perfect-scrollbar.jquery.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&lt;script src=<span class="string">"js/perfect-scrollbar.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  $(<span class="string">'.container'</span>).perfectScrollbar();</span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
           
       
     </div>
@@ -530,7 +559,7 @@
 
       
         <p class="article-more-link">
-          <a href="/2017/09/06/插件/完美滚动条/#more">阅读全文 >></a>
+          <a href="/2017/09/06/插件/完美滚动条/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -556,15 +585,6 @@
       <time datetime="2017-07-22T03:40:01.323Z" itemprop="datePublished">2017-07-22</time>
 </a>
 
- 
-    <a href="/2017/07/22/js模块规范/CMD/CMD/#comments" title="查看评论">
-        <i class="fa fa-comments-o" aria-hidden="true"></i>
-        <span class="count-comment"></span>
-        
-            <span class="ds-thread-count"  data-thread-key="2017/07/22/js模块规范/CMD/CMD/" ></span>
-        
-        
-    </a>
 
     </div>
   
@@ -608,7 +628,7 @@
 
       
         <p class="article-more-link">
-          <a href="/2017/07/22/js模块规范/CMD/CMD/#more">阅读全文 >></a>
+          <a href="/2017/07/22/js模块规范/CMD/CMD/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -634,15 +654,6 @@
       <time datetime="2017-07-22T03:40:01.307Z" itemprop="datePublished">2017-07-22</time>
 </a>
 
- 
-    <a href="/2017/07/22/js模块规范/AMD/AMD/#comments" title="查看评论">
-        <i class="fa fa-comments-o" aria-hidden="true"></i>
-        <span class="count-comment"></span>
-        
-            <span class="ds-thread-count"  data-thread-key="2017/07/22/js模块规范/AMD/AMD/" ></span>
-        
-        
-    </a>
 
     </div>
   
@@ -665,7 +676,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>AMD规范其实只有一个主要接口 <code>define(id,dependencies,factory)</code>，它要在声明模块的时候指定所有的依赖<code>dependencies</code>，并且还要当做形参传到<code>factory</code>中，对于依赖的模块提前执行，依赖前置<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">define(<span class="string">"module"</span>, [<span class="string">"dep1"</span>, <span class="string">"dep2"</span>], <span class="function"><span class="keyword">function</span>(<span class="params">d1, d2</span>) </span>&#123;  </span><br><span class="line">  <span class="keyword">return</span> someExportedValue;  </span><br><span class="line">&#125;);  </span><br><span class="line"><span class="built_in">require</span>([<span class="string">"module"</span>, <span class="string">"../file"</span>], <span class="function"><span class="keyword">function</span>(<span class="params">module, file</span>) </span>&#123; <span class="comment">/* ... */</span> &#125;);</span><br></pre></td></tr></table></figure></p>
+              <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>AMD规范其实只有一个主要接口 <code>define(id,dependencies,factory)</code>，它要在声明模块的时候指定所有的依赖<code>dependencies</code>，并且还要当做形参传到<code>factory</code>中，对于依赖的模块提前执行，依赖前置<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">define(<span class="string">"module"</span>, [<span class="string">"dep1"</span>, <span class="string">"dep2"</span>], <span class="function"><span class="keyword">function</span>(<span class="params">d1, d2</span>) </span>&#123;  </span><br><span class="line">  <span class="keyword">return</span> someExportedValue;  </span><br><span class="line">&#125;);  </span><br><span class="line"><span class="built_in">require</span>([<span class="string">"module"</span>, <span class="string">"../file"</span>], <span class="function"><span class="keyword">function</span>(<span class="params">module, file</span>) </span>&#123; <span class="comment">/* ... */</span> &#125;);</span><br></pre></td></tr></table></figure></p>
 <h3 id="require函数调用模块"><a href="#require函数调用模块" class="headerlink" title="require函数调用模块"></a>require函数调用模块
           
       
@@ -686,7 +697,7 @@
 
       
         <p class="article-more-link">
-          <a href="/2017/07/22/js模块规范/AMD/AMD/#more">阅读全文 >></a>
+          <a href="/2017/07/22/js模块规范/AMD/AMD/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -712,15 +723,6 @@
       <time datetime="2017-07-22T03:40:01.292Z" itemprop="datePublished">2017-07-22</time>
 </a>
 
- 
-    <a href="/2017/07/22/js模块规范/commonjs/commomjs/#comments" title="查看评论">
-        <i class="fa fa-comments-o" aria-hidden="true"></i>
-        <span class="count-comment"></span>
-        
-            <span class="ds-thread-count"  data-thread-key="2017/07/22/js模块规范/commonjs/commomjs/" ></span>
-        
-        
-    </a>
 
     </div>
   
@@ -764,84 +766,7 @@
 
       
         <p class="article-more-link">
-          <a href="/2017/07/22/js模块规范/commonjs/commomjs/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-backbone/first" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/07/22/backbone/first/" class="article-date">
-      <time datetime="2017-07-22T03:31:22.962Z" itemprop="datePublished">2017-07-22</time>
-</a>
-
- 
-    <a href="/2017/07/22/backbone/first/#comments" title="查看评论">
-        <i class="fa fa-comments-o" aria-hidden="true"></i>
-        <span class="count-comment"></span>
-        
-            <span class="ds-thread-count"  data-thread-key="2017/07/22/backbone/first/" ></span>
-        
-        
-    </a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/22/backbone/first/">backbone零基础</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>讲真，朋友知道我最近开始学backbone，都觉得我在填坑，在大家都在学vue的时候，我还在学横跨了他们好几个时代的框架，我也很无奈啊。更加无奈的是，我愣是没有看懂，没办法毕竟是一只菜鸟。直到刚才，我终于摸到一点门路了，可把我高兴坏了，控制不住地想把整个过程写下来，记录下一只菜鸟学backbone的艰辛历程。总共没几行代码,我就不po<code>github</code>地址了。<br>我就是实现了一个很简单的<code>click</code>功能（学习要一点点来嘛，先要把模板，数据和视图之间走通，对，我刚刚才走通）<br>之前没走通的时候还把带有bug的代码push到了github的仓库内，不过，毕竟关注的人少，还是只能自己默默地解决问题。
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/web/">web</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/backbone/">backbone</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2017/07/22/backbone/first/#more">阅读全文 >></a>
+          <a href="/2017/07/22/js模块规范/commonjs/commomjs/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -867,15 +792,6 @@
       <time datetime="2017-07-22T03:31:22.962Z" itemprop="datePublished">2017-07-22</time>
 </a>
 
- 
-    <a href="/2017/07/22/backbone/second/#comments" title="查看评论">
-        <i class="fa fa-comments-o" aria-hidden="true"></i>
-        <span class="count-comment"></span>
-        
-            <span class="ds-thread-count"  data-thread-key="2017/07/22/backbone/second/" ></span>
-        
-        
-    </a>
 
     </div>
   
@@ -899,8 +815,8 @@
       
           
               <p>html部分同之前没有用collection的一样,这里就不赘述了.</p>
-<h3 id="template部分"><a href="#template部分" class="headerlink" title="template部分"></a>template部分</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/template"</span> id=<span class="string">"content_template"</span>&gt;</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"content"</span>&gt;</span></span><br><span class="line">        显示</span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> &lt;%= <span class="attr">obj.done</span>?'<span class="attr">checked</span>= "<span class="attr">checked</span>"'<span class="attr">:</span>'' %&gt;</span> /&gt;是否选择 </span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-<h3 id="model部分"><a href="#model部分" class="headerlink" title="model部分"></a>model部分</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Test =Backbone.Model.extend(&#123;</span><br><span class="line">    <span class="keyword">default</span>:&#123;</span><br><span class="line">        done:<span class="literal">false</span>  <span class="comment">//默认不选</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="template部分"><a href="#template部分" class="headerlink" title="template部分"></a>template部分</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/template"</span> id=<span class="string">"content_template"</span>&gt;</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"content"</span>&gt;</span></span><br><span class="line">        显示</span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> &lt;%= <span class="attr">obj.done</span>?'<span class="attr">checked</span>= "<span class="attr">checked</span>"'<span class="attr">:</span>'' %&gt;</span> /&gt;是否选择 </span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="model部分"><a href="#model部分" class="headerlink" title="model部分"></a>model部分</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> Test =Backbone.Model.extend(&#123;</span><br><span class="line">    <span class="keyword">default</span>:&#123;</span><br><span class="line">        done:<span class="literal">false</span>  <span class="comment">//默认不选</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <h3 id="collection部分"><a href="#collection部分" class="headerlink" title="collection部分"></a>collection部分
           
       
@@ -921,164 +837,8 @@
 
       
         <p class="article-more-link">
-          <a href="/2017/07/22/backbone/second/#more">阅读全文 >></a>
+          <a href="/2017/07/22/backbone/second/#more">more >></a>
         </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-vue/vue_first" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/07/11/vue/vue_first/" class="article-date">
-      <time datetime="2017-07-11T04:04:18.044Z" itemprop="datePublished">2017-07-11</time>
-</a>
-
- 
-    <a href="/2017/07/11/vue/vue_first/#comments" title="查看评论">
-        <i class="fa fa-comments-o" aria-hidden="true"></i>
-        <span class="count-comment"></span>
-        
-            <span class="ds-thread-count"  data-thread-key="2017/07/11/vue/vue_first/" ></span>
-        
-        
-    </a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/11/vue/vue_first/">vue知识总结</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><p>Vue.js是当下很火的一个MVVM库，Vue.js是数据驱动的，你无需手动操作DOM。它通过一些特殊的HTML语法，将DOM和数据绑定起来。一旦你创建了绑定，DOM将和数据保持同步，每当变更了数据，DOM也会相应地更新。</p>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>1.直接<code>&lt;script&gt;</code>引入，<a href="https://vuejs.org/js/vue.js">开发版</a>;<a href="https://vuejs.org/js/vue.min.js">生产版</a>;<br>2.命令行工具(CLI)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 全局安装 vue-cli</span><br><span class="line">$ npm install --global vue-cli</span><br><span class="line"># 创建一个基于 webpack 模板的新项目</span><br><span class="line">$ vue init webpack my-project</span><br><span class="line"># 安装依赖，走你</span><br><span class="line">$ cd my-project</span><br><span class="line">$ npm install</span><br><span class="line">$ npm run dev</span><br></pre></td></tr></table></figure></p>
-<h3 id="hello-vue-示例"><a href="#hello-vue-示例" class="headerlink" title="hello vue 示例 "></a>hello vue 示例
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/vue/">vue</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/knowledge-point/">knowledge point</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2017/07/11/vue/vue_first/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-matlab/matlab-查看自带函数源代码" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/04/11/matlab/matlab-查看自带函数源代码/" class="article-date">
-      <time datetime="2017-04-11T08:32:13.879Z" itemprop="datePublished">2017-04-11</time>
-</a>
-
- 
-    <a href="/2017/04/11/matlab/matlab-查看自带函数源代码/#comments" title="查看评论">
-        <i class="fa fa-comments-o" aria-hidden="true"></i>
-        <span class="count-comment"></span>
-        
-            <span class="ds-thread-count"  data-thread-key="2017/04/11/matlab/matlab-查看自带函数源代码/" ></span>
-        
-        
-    </a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/11/matlab/matlab-查看自带函数源代码/">如何查看matlab自带函数的源代码</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <pre><code>matlab会自带一些比较专用或者多用的函数提供给用户（比如：fft,rgb2gray……），我们只需要调用这些函数就可以得到我们所需要的结果，而不必关心函数内部是怎么实现的。但有时候，我们需要将函数的实现移植到其他语言中（或者低版本中没有定义你所需要的函数），就需要了解函数的代码实现。以下是查看matlab源码的方法：
-1.在命令行窗口输入：type 函数名 （type fft）,回车就会出现该函数的源代码和相应的注释。
-2.open 函数名，打开该函数的m文件。
-3.edit 函数名，也是打开该函数的m文件
-matlab中的一些内置函数是看不到源码的，比如：max,min,find……
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/matlab/">matlab</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/command-line/">command-line</a></li></ul>
-    </div>
-
       
       <div class="clearfix"></div>
     </div>
@@ -1098,7 +858,7 @@ matlab中的一些内置函数是看不到源码的，比如：max,min,find…�
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 </div>
@@ -1107,12 +867,30 @@ matlab中的一些内置函数是看不到源码的，比如：max,min,find…�
         <div id="footer-info">
             <div class="footer-left">
                 <i class="fa fa-copyright"></i> 
-                2016-2017 White
+                2016-2018 yimi
             </div>
             <div class="footer-right">
                 <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
             </div>
         </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
         
     </div>
 </footer>
@@ -1120,44 +898,7 @@ matlab中的一些内置函数是看不到源码的，比如：max,min,find…�
     
 <script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
 
-    <script>
-        $(document).ready(function() {
-            var iPad = window.navigator.userAgent.indexOf('iPad');
-            if (iPad > -1 || $(".left-col").css("display") === "none") {
-                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
-                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
-                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
-            }
-            else {
-                var backgroundnum = 5;
-                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
-                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
-            }
-        })
-    </script>
 
-
-    
-        <script>
-            if ($(".left-col").is(":visible")) {
-                var duoshuoQuery = {short_name:"wttwhite"};
-                (function() {
-                    var d = document, s = d.createElement('script');
-                    s.src = 'http://static.duoshuo.com/embed.js';
-                    s.async = true; s.charset = 'UTF-8';
-                    (d.head || d.body).appendChild(s);
-                })();
-
-                $(document).ready(function(){
-                    var $duoshuoCount = $(".ds-thread-count");
-                    $duoshuoCount.bind("DOMNodeInserted", function(e) {
-                        var num = $(this).text().replace(/[^0-9]/ig,"");
-                        $(this).siblings(".count-comment").text(num);
-                        $(this).remove();
-                    })
-                })
-            }
-        </script>
     
 
      
@@ -1196,14 +937,14 @@ MathJax.Hub.Queue(function() {
     
         var oOpenInNew = {
             
-             title: "a.article-title, .article-more-link a", 
+            
              post: ".article-entry a[href], .copyright a[href]", 
-             tags: ".article-tag a", 
-             categories: ".article-category a, a.tag-list-link", 
-             articleNav: "#article-nav a, #post-nav-button a", 
-             archives: ".archive-article-title", 
-             miniArchives: "a.post-list-link", 
-             menu: ".header-menu a", 
+            
+            
+            
+            
+            
+            
              friends: "#js-friends a", 
              socail: ".social a" 
         }
@@ -1212,23 +953,6 @@ MathJax.Hub.Queue(function() {
         }
     
 </script>
-
-    <script>
-        var originTitle = document.title;
-        var titleTime;
-        document.addEventListener("visibilitychange", function() {
-            if (document.hidden) {
-                document.title = "你不看我了吗？T-T" + originTitle;
-                clearTimeout(titleTime);
-            }
-            else {
-                document.title = "被你看到啦~ *-*" + originTitle;
-                titleTime = setTimeout(function() {
-                    document.title = originTitle;
-                }, 2000);
-            }
-        })
-    </script>
 
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>

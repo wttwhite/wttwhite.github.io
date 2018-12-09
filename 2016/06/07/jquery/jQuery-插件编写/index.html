@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hans">
+<html >
 <head>
 
     <!--[if lt IE 9]>
@@ -11,15 +11,15 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="format-detection" content="telephone=no" />
-<meta name="author" content="White" />
+<meta name="author" content="yimi" />
 
 
 
 <meta name="description" content="写这篇文章(总结更为恰当)主要的目的是为了之后编写jq插件的时候可以很快的上手。其实就是一个知识的概括总结和实例代码的堆砌。之前也有看过关于jq的插件，记得当时并不是特别成功。但具体是什么问题已经忘记了。我一直有一种一样东西学了之后，过一段时间就会忘记的那种恐慌，可能就是因为平时并不太去用它们吧。好了，言归正传，我们来说说jq插件吧。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="jQuery插件的编写">
-<meta property="og:url" content="wttwhite/2016/06/07/jquery/jQuery-插件编写/index.html">
-<meta property="og:site_name" content="White">
+<meta property="og:url" content="http://wttwhite.github.io/2016/06/07/jquery/jQuery-插件编写/index.html">
+<meta property="og:site_name" content="blog">
 <meta property="og:description" content="写这篇文章(总结更为恰当)主要的目的是为了之后编写jq插件的时候可以很快的上手。其实就是一个知识的概括总结和实例代码的堆砌。之前也有看过关于jq的插件，记得当时并不是特别成功。但具体是什么问题已经忘记了。我一直有一种一样东西学了之后，过一段时间就会忘记的那种恐慌，可能就是因为平时并不太去用它们吧。好了，言归正传，我们来说说jq插件吧。">
 <meta property="og:updated_time" content="2016-12-27T12:03:57.976Z">
 <meta name="twitter:card" content="summary">
@@ -34,8 +34,6 @@
     <link rel="shortcut icon" href="/img/favicon.jpeg">
 
 
-
-    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
 
 
 
@@ -54,7 +52,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>jQuery插件的编写 | White</title>
+<title>jQuery插件的编写 | blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -62,7 +60,7 @@
 <script>
     var yiliaConfig = {
         fancybox: true,
-        animate: true,
+        animate: false,
         isHome: false,
         isPost: true,
         isArchive: false,
@@ -99,11 +97,9 @@
             <img src="/img/author.jpeg" class="animated zoomIn">
         </a>
         <hgroup>
-          <h1 class="header-author"><a href="/">White</a></h1>
+          <h1 class="header-author"><a href="/">yimi</a></h1>
         </hgroup>
 
-        
-        <p class="header-subtitle">The sandgrass remembers the time we lost</p>
         
 
         
@@ -170,8 +166,6 @@
                         
                             <li><a href="/tags/">标签云</a></li>
                         
-                            <li><a href="/about/">关于我</a></li>
-                        
                         </ul>
                     </nav>
                     <nav class="header-nav">
@@ -205,7 +199,7 @@
                     
                       <a class="main-nav-link switch-friends-link" href="http://cheesemucha.cn">Echo</a>
                     
-                      <a class="main-nav-link switch-friends-link" href="https://jyzwf.github.io/">弦冰</a>
+                      <a class="main-nav-link switch-friends-link" href="https://jyzwf.ttps://pages.github.com/">弦冰</a>
                     
                     </div>
                 </section>
@@ -227,7 +221,7 @@
       <nav id="mobile-nav">
       <div class="overlay">
           <div class="slider-trigger"></div>
-          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">White</a></h1>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">yimi</a></h1>
       </div>
     <div class="intrude-less">
         <header id="header" class="inner">
@@ -235,10 +229,8 @@
                 <img src="/img/author.jpeg" class="animated zoomIn">
             </a>
             <hgroup>
-              <h1 class="header-author"><a href="/" title="回到主页">White</a></h1>
+              <h1 class="header-author"><a href="/" title="回到主页">yimi</a></h1>
             </hgroup>
-            
-            <p class="header-subtitle">The sandgrass remembers the time we lost</p>
             
             <nav class="header-menu">
                 <ul>
@@ -248,8 +240,6 @@
                     <li><a href="/archives/">所有文章</a></li>
                 
                     <li><a href="/tags/">标签云</a></li>
-                
-                    <li><a href="/about/">关于我</a></li>
                 
                 <div class="clearfix"></div>
                 </ul>
@@ -318,22 +308,22 @@
 
 <p>插件的文件名推荐命名为jquery.[插件名].js，以免和其他js库插件混淆。<br>所有的对象方法都应该附加到jQuery.fn对象上，而所有的全局函数都应该附加到jQuery对象本身上。<br>在插件内部，this指向的是当前通过选择器获取的jQuery对象，而不像一般的方法那样，例如click()方法，内部的this指向的是DOM元素。<br>可以通过this.each来遍历所有元素。<br>所有的方法或函数插件，都应当以分号结尾，否则压缩的时候可能出现问题为了更稳妥些，甚至可以在插件的头部先加一个分号，以免他人不规范的代码给插件带来影响。<br>插件应该返回一个jQuery对象，以保证插件的可链式操作。除非插件需要返回的是一些需要获取的量，例如字符串或者数组等。<br>避免在插件内部使用$作为jQuery对象的别名，而应该使用完整的jQuery来表示。当然也可以使用闭包来避免冲突，使插件内部继续使用$作为jQuery的别名。</p>
 <p>利用闭包的特性，既可以避免内部临时变量影响全局空间，又可以在插件内部继续使用$作为jQuery的别名。<br>常见的插件结构：<br>//为了更好地兼容性，开始前有个分号<br>;(function($){  //此处将$作为匿名函数的形参<br>     //放置代码<br>})(jQuery);   // 这里讲jQuery作为实参传递给匿名函数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">;(function()&#123;</span><br><span class="line">  Var foo; //定义一个局部变量，仅函数内部可以访问，外部无法访问</span><br><span class="line">  Var bar = function()&#123;</span><br><span class="line">		//匿名函数内部的函数都可以访问foo，在函数外部调用bar()的时候，也可以在bar()的内部访问foo，但在外部直接访问foo是不可以的。</span><br><span class="line">&#125;</span><br><span class="line">$.BAR = bar; //让匿名函数内部的bar()逃逸到全局可访问的范围内，这样可以在匿名函数外部通过调用jQuery.BAR()来访问内部定义的函数bar()，并且bar()也能访问foo</span><br><span class="line">&#125;)( jQuery);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">;(function()&#123;</span><br><span class="line">  Var foo; //定义一个局部变量，仅函数内部可以访问，外部无法访问</span><br><span class="line">  Var bar = function()&#123;</span><br><span class="line">		//匿名函数内部的函数都可以访问foo，在函数外部调用bar()的时候，也可以在bar()的内部访问foo，但在外部直接访问foo是不可以的。</span><br><span class="line">&#125;</span><br><span class="line">$.BAR = bar; //让匿名函数内部的bar()逃逸到全局可访问的范围内，这样可以在匿名函数外部通过调用jQuery.BAR()来访问内部定义的函数bar()，并且bar()也能访问foo</span><br><span class="line">&#125;)( jQuery);</span><br></pre></td></tr></table></figure>
 <p><br></p>
 <font size="4">jQuery插件的机制：</font>
 
-<p>jQuery.fn.extend()方法用于扩展 封装对象方法的插件<br>jQuery.extend()方法用于扩展,经常被用于设置插件方法的一系列默认参数  封装全局函数的插件和选择器插件，还可以扩展已有的Object对象。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">var settings = &#123;name:&apos;1&apos;,limit:5,val:false&#125;;</span><br><span class="line">var options = &#123;name:&apos;2&apos;,val:true&#125;;</span><br><span class="line">var newOptions = jQuery.extend(settings,options);</span><br><span class="line">console.log(newOptions);</span><br><span class="line">//Object &#123;name: &quot;2&quot;, limit: 5, val: true&#125;</span><br><span class="line"></span><br><span class="line">function foo(options)&#123;</span><br><span class="line">	options = jQuery.extend(&#123;</span><br><span class="line">		name:&quot;bar&quot;,</span><br><span class="line">		length:5,</span><br><span class="line">		dataType:&quot;html&quot;    //默认参数</span><br><span class="line">	&#125;,options);  //options为传递的参数</span><br><span class="line">	return options;//要return才有值</span><br><span class="line">&#125;;  </span><br><span class="line">console.log(foo(&#123;name:&apos;a&apos;,length:4&#125;));//调用foo()方法时，在传递的参数对象中设置了相应的值，就使用设置的值，否则就使用默认值</span><br><span class="line">//Object &#123;name: &quot;a&quot;, length: 4, dataType: &quot;html&quot;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>jQuery.fn.extend()方法用于扩展 封装对象方法的插件<br>jQuery.extend()方法用于扩展,经常被用于设置插件方法的一系列默认参数  封装全局函数的插件和选择器插件，还可以扩展已有的Object对象。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var settings = &#123;name:&apos;1&apos;,limit:5,val:false&#125;;</span><br><span class="line">var options = &#123;name:&apos;2&apos;,val:true&#125;;</span><br><span class="line">var newOptions = jQuery.extend(settings,options);</span><br><span class="line">console.log(newOptions);</span><br><span class="line">//Object &#123;name: &quot;2&quot;, limit: 5, val: true&#125;</span><br><span class="line"></span><br><span class="line">function foo(options)&#123;</span><br><span class="line">	options = jQuery.extend(&#123;</span><br><span class="line">		name:&quot;bar&quot;,</span><br><span class="line">		length:5,</span><br><span class="line">		dataType:&quot;html&quot;    //默认参数</span><br><span class="line">	&#125;,options);  //options为传递的参数</span><br><span class="line">	return options;//要return才有值</span><br><span class="line">&#125;;  </span><br><span class="line">console.log(foo(&#123;name:&apos;a&apos;,length:4&#125;));//调用foo()方法时，在传递的参数对象中设置了相应的值，就使用设置的值，否则就使用默认值</span><br><span class="line">//Object &#123;name: &quot;a&quot;, length: 4, dataType: &quot;html&quot;&#125;</span><br></pre></td></tr></table></figure></p>
 <font size="4">编写jQuery插件</font>
 
 <ol>
 <li><p>封装jQuery对象方法的插件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//该插件实现两个功能：1.设置匹配元素的颜色。2.获取匹配元素的颜色(元素集的第一个)</span><br><span class="line">;(function($)&#123;</span><br><span class="line">	$.fn.extend(&#123;</span><br><span class="line">		color : function(val)&#123;</span><br><span class="line">			if(val == undefined)&#123;</span><br><span class="line">				return this.css(&apos;color&apos;);</span><br><span class="line">			&#125;else&#123;</span><br><span class="line">				return this.css(&apos;color&apos;,val);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;)(jQuery);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">//该插件实现两个功能：1.设置匹配元素的颜色。2.获取匹配元素的颜色(元素集的第一个)</span><br><span class="line">;(function($)&#123;</span><br><span class="line">	$.fn.extend(&#123;</span><br><span class="line">		color : function(val)&#123;</span><br><span class="line">			if(val == undefined)&#123;</span><br><span class="line">				return this.css(&apos;color&apos;);</span><br><span class="line">			&#125;else&#123;</span><br><span class="line">				return this.css(&apos;color&apos;,val);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;)(jQuery);</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>封装全局函数的插件<br>这类插件是在jQuery命名空间内部添加一个函数。这类插件很简单，只是普通的函数，没有特别需要注意的地方。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">//去除左侧、右侧的空格的函数</span><br><span class="line">	;(function($)&#123;</span><br><span class="line">		$.extend(&#123;</span><br><span class="line">			ltrim:function(text)&#123;</span><br><span class="line">				return (text || &apos;&apos;).replace(/^\s+/g,&apos;&apos;);</span><br><span class="line">			&#125;,</span><br><span class="line">			rtrim:function(text)&#123;</span><br><span class="line">				return (text || &apos;&apos;).replace(/\s+$/g,&apos;&apos;);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line"></span><br><span class="line">	&#125;)(jQuery);</span><br><span class="line"></span><br><span class="line">	$(&apos;textarea&apos;).val(</span><br><span class="line">		$.trim(&apos;    text    &apos;)+&apos;\n&apos;+</span><br><span class="line">		$.ltrim(&apos;    text    &apos;)+&apos;\n&apos;+</span><br><span class="line">		$.rtrim(&apos;    text    &apos;)+&apos;\n&apos;</span><br><span class="line"></span><br><span class="line">	);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">//去除左侧、右侧的空格的函数</span><br><span class="line">	;(function($)&#123;</span><br><span class="line">		$.extend(&#123;</span><br><span class="line">			ltrim:function(text)&#123;</span><br><span class="line">				return (text || &apos;&apos;).replace(/^\s+/g,&apos;&apos;);</span><br><span class="line">			&#125;,</span><br><span class="line">			rtrim:function(text)&#123;</span><br><span class="line">				return (text || &apos;&apos;).replace(/\s+$/g,&apos;&apos;);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line"></span><br><span class="line">	&#125;)(jQuery);</span><br><span class="line"></span><br><span class="line">	$(&apos;textarea&apos;).val(</span><br><span class="line">		$.trim(&apos;    text    &apos;)+&apos;\n&apos;+</span><br><span class="line">		$.ltrim(&apos;    text    &apos;)+&apos;\n&apos;+</span><br><span class="line">		$.rtrim(&apos;    text    &apos;)+&apos;\n&apos;</span><br><span class="line"></span><br><span class="line">	);</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>3．jQuery提供了一套方法让用户可以通过制作选择器插件来使用自定义选择器，从而使jQuery的选择器功能更加完善。<br>    JQuery的选择符解析器首先会使用一组正则表达式来解析选择器，然后针对解析出的每个选择符执行一个函数，称为选择器函数。最后根据这个选择器函数的返回值为true还是false来决定是否保留这个元素。这样就可以找到匹配的元素节点。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(‘div:gt(1)’);</span><br><span class="line">:gt()选择器在jQuery源文件中的代码：</span><br><span class="line">gt:function(a,I,m)&#123;  //a当前遍历到的DOM元素，i索引值从0开始，m是由jQuery正则解析引擎进一步解析后的产物(用match匹配出来的)，是一个数组。M[0]是gt:(1)部分，m[1]是选择器的引导符，m[2]即gt,m[3]即1，m[4]在如div:l(ss(dd))中指向(dd),但此时m[3]是ss(dd)</span><br><span class="line">	return i&gt;m[3]-0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>3．jQuery提供了一套方法让用户可以通过制作选择器插件来使用自定义选择器，从而使jQuery的选择器功能更加完善。<br>    JQuery的选择符解析器首先会使用一组正则表达式来解析选择器，然后针对解析出的每个选择符执行一个函数，称为选择器函数。最后根据这个选择器函数的返回值为true还是false来决定是否保留这个元素。这样就可以找到匹配的元素节点。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$(‘div:gt(1)’);</span><br><span class="line">:gt()选择器在jQuery源文件中的代码：</span><br><span class="line">gt:function(a,I,m)&#123;  //a当前遍历到的DOM元素，i索引值从0开始，m是由jQuery正则解析引擎进一步解析后的产物(用match匹配出来的)，是一个数组。M[0]是gt:(1)部分，m[1]是选择器的引导符，m[2]即gt,m[3]即1，m[4]在如div:l(ss(dd))中指向(dd),但此时m[3]是ss(dd)</span><br><span class="line">	return i&gt;m[3]-0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -343,12 +333,12 @@
     
     <div class="copyright">
         <p><span>本文标题:</span><a href="/2016/06/07/jquery/jQuery-插件编写/">jQuery插件的编写</a></p>
-        <p><span>文章作者:</span><a href="/" title="回到主页">White</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">yimi</a></p>
         <p><span>发布时间:</span>2016-06-07, 15:57:37</p>
         <p><span>最后更新:</span>2016-12-27, 20:03:57</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/06/07/jquery/jQuery-插件编写/" title="jQuery插件的编写">wttwhite/2016/06/07/jquery/jQuery-插件编写/</a>
-            <span class="copy-path" data-clipboard-text="原文: wttwhite/2016/06/07/jquery/jQuery-插件编写/　　作者: White" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/06/07/jquery/jQuery-插件编写/" title="jQuery插件的编写">http://wttwhite.github.io/2016/06/07/jquery/jQuery-插件编写/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://wttwhite.github.io/2016/06/07/jquery/jQuery-插件编写/　　作者: yimi" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -389,8 +379,8 @@
         .left-col .switch-area {
             display: none;
         }
-        .toc-level-6 i,
-        .toc-level-6 ol {
+        .toc-level-3 i,
+        .toc-level-3 ol {
             display: none !important;
         }
     </style>
@@ -417,7 +407,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"jQuery插件的编写　| White　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"jQuery插件的编写　| blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -430,25 +420,6 @@
 
 
 
-    
-      <div class="duoshuo" id="comments">
-    <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/06/07/jquery/jQuery-插件编写/" data-title="jQuery插件的编写" data-url="wttwhite/2016/06/07/jquery/jQuery-插件编写/"></div>
-    <script>
-        var duoshuoQuery = {short_name:"wttwhite"};
-        var loadComment = function(){
-            var d = document, s = d.createElement('script');
-            s.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-            s.async = true; s.charset = 'UTF-8';
-            (d.head || d.body).appendChild(s);
-        }
-
-        
-    </script>
-    
-    <script> loadComment(); </script>
-
-</div>
     
 
 
@@ -470,7 +441,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/10/15/python/python/">python基础知识</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/15/正则表达式/正则表达式/">正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/06/插件/完美滚动条/">完美滚动条:prefect-scrollbar</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/js模块规范/CMD/CMD/">CMD</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/js模块规范/AMD/AMD/">AMD</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/js模块规范/commonjs/commomjs/">CommonJS</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/backbone/first/">backbone零基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/backbone/second/">backbone使用Collection</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/11/vue/vue_first/">vue知识总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/11/matlab/matlab-查看自带函数源代码/">如何查看matlab自带函数的源代码</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/28/sublime/sublime vue/">sublime vue 语法高亮插件安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/27/markdown/markdown/">markdown</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/03/demo/爱心小鱼/">爱心小鱼</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/30/myLife/">随记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/07/jquery/jQuery-插件编写/">jQuery插件的编写</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/14/javascript/避免js冲突/">避免JS冲突</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/13/javascript/JS-object/">Js对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/08/javascript/JS-prototype/">Js原型链</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/05/10/matlab-查看自带函数源代码/">如何查看matlab自带函数的源代码</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/15/python/python/">python基础知识</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/15/正则表达式/正则表达式/">正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/06/插件/完美滚动条/">完美滚动条:prefect-scrollbar</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/js模块规范/CMD/CMD/">CMD</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/js模块规范/AMD/AMD/">AMD</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/js模块规范/commonjs/commomjs/">CommonJS</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/backbone/second/">backbone使用Collection</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/backbone/first/">backbone零基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/11/vue/vue_first/">vue知识总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/11/matlab/matlab-查看自带函数源代码/">如何查看matlab自带函数的源代码</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/28/sublime/sublime vue/">sublime vue 语法高亮插件安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/27/markdown/markdown/">markdown</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/03/demo/爱心小鱼/">爱心小鱼</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/30/myLife/">随记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/07/jquery/jQuery-插件编写/">jQuery插件的编写</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/14/javascript/避免js冲突/">避免JS冲突</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/13/javascript/JS-object/">Js对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/08/javascript/JS-prototype/">Js原型链</a></li></ul>
 
 
 
@@ -484,34 +455,36 @@
         <div id="footer-info">
             <div class="footer-left">
                 <i class="fa fa-copyright"></i> 
-                2016-2017 White
+                2016-2018 yimi
             </div>
             <div class="footer-right">
                 <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
             </div>
         </div>
         
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
     </div>
 </footer>
     </div>
     
 <script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
-
-    <script>
-        $(document).ready(function() {
-            var iPad = window.navigator.userAgent.indexOf('iPad');
-            if (iPad > -1 || $(".left-col").css("display") === "none") {
-                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
-                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
-                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
-            }
-            else {
-                var backgroundnum = 5;
-                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
-                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
-            }
-        })
-    </script>
 
 
 
@@ -548,14 +521,14 @@ MathJax.Hub.Queue(function() {
     
         var oOpenInNew = {
             
-             title: "a.article-title, .article-more-link a", 
+            
              post: ".article-entry a[href], .copyright a[href]", 
-             tags: ".article-tag a", 
-             categories: ".article-category a, a.tag-list-link", 
-             articleNav: "#article-nav a, #post-nav-button a", 
-             archives: ".archive-article-title", 
-             miniArchives: "a.post-list-link", 
-             menu: ".header-menu a", 
+            
+            
+            
+            
+            
+            
              friends: "#js-friends a", 
              socail: ".social a" 
         }
@@ -564,23 +537,6 @@ MathJax.Hub.Queue(function() {
         }
     
 </script>
-
-    <script>
-        var originTitle = document.title;
-        var titleTime;
-        document.addEventListener("visibilitychange", function() {
-            if (document.hidden) {
-                document.title = "你不看我了吗？T-T" + originTitle;
-                clearTimeout(titleTime);
-            }
-            else {
-                document.title = "被你看到啦~ *-*" + originTitle;
-                titleTime = setTimeout(function() {
-                    document.title = originTitle;
-                }, 2000);
-            }
-        })
-    </script>
 
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
