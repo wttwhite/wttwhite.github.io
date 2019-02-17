@@ -16,26 +16,21 @@
 
 
 <meta name="description" content="前言： 首先， 这些代码是网上有的， 现在正处理刚开始学习TensorFlow的阶段， 所以将网上的demo分步理解的过程整理了下， 损失函数这一块还不是很了解。
-生成函数图
-生成x轴数据
-# np.linspace# 在指定的间隔内返回均匀间隔的数字# np.newaxis()# 插入新维度， 在使用功能上等价于None, 其实就是None的一个别名, 可以用None代替# 生成一个 [[-1]">
+生成函数图生成x轴数据# np.linspace# 在指定的间隔内返回均匀间隔的数字# np.newaxis()# 插入新维度， 在使用功能上等价于None, 其实就是None的一个别名, 可以用None代替# 生成一个 [[-1] [">
 <meta property="og:type" content="article">
 <meta property="og:title" content="拟合一元二次方程过程">
 <meta property="og:url" content="http://wttwhite.github.io/2019/02/17/tensorflow/quadratic_equation/index.html">
 <meta property="og:site_name" content="blog">
 <meta property="og:description" content="前言： 首先， 这些代码是网上有的， 现在正处理刚开始学习TensorFlow的阶段， 所以将网上的demo分步理解的过程整理了下， 损失函数这一块还不是很了解。
-生成函数图
-生成x轴数据
-# np.linspace# 在指定的间隔内返回均匀间隔的数字# np.newaxis()# 插入新维度， 在使用功能上等价于None, 其实就是None的一个别名, 可以用None代替# 生成一个 [[-1]">
+生成函数图生成x轴数据# np.linspace# 在指定的间隔内返回均匀间隔的数字# np.newaxis()# 插入新维度， 在使用功能上等价于None, 其实就是None的一个别名, 可以用None代替# 生成一个 [[-1] [">
 <meta property="og:image" content="http://wttwhite.github.io/../Figure_1.png">
 <meta property="og:image" content="http://wttwhite.github.io/../Figure_2.png">
-<meta property="og:updated_time" content="2019-02-17T12:58:19.192Z">
+<meta property="og:image" content="http://wttwhite.github.io/../img.jpg">
+<meta property="og:updated_time" content="2019-02-17T13:16:09.372Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="拟合一元二次方程过程">
 <meta name="twitter:description" content="前言： 首先， 这些代码是网上有的， 现在正处理刚开始学习TensorFlow的阶段， 所以将网上的demo分步理解的过程整理了下， 损失函数这一块还不是很了解。
-生成函数图
-生成x轴数据
-# np.linspace# 在指定的间隔内返回均匀间隔的数字# np.newaxis()# 插入新维度， 在使用功能上等价于None, 其实就是None的一个别名, 可以用None代替# 生成一个 [[-1]">
+生成函数图生成x轴数据# np.linspace# 在指定的间隔内返回均匀间隔的数字# np.newaxis()# 插入新维度， 在使用功能上等价于None, 其实就是None的一个别名, 可以用None代替# 生成一个 [[-1] [">
 <meta name="twitter:image" content="http://wttwhite.github.io/../Figure_1.png">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
@@ -314,27 +309,17 @@
       
           
         <p>前言： 首先， 这些代码是网上有的， 现在正处理刚开始学习TensorFlow的阶段， 所以将网上的demo分步理解的过程整理了下， 损失函数这一块还不是很了解。</p>
-<h1 id="生成函数图"><a href="#生成函数图" class="headerlink" title="生成函数图"></a>生成函数图</h1><ol>
-<li><p>生成x轴数据</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># np.linspace</span><br><span class="line"># 在指定的间隔内返回均匀间隔的数字</span><br><span class="line"># np.newaxis()</span><br><span class="line"># 插入新维度， 在使用功能上等价于None, 其实就是None的一个别名, 可以用None代替</span><br><span class="line"># 生成一个 [[-1] [-0.9...]...[...], [1]] 的 300行1列 矩阵</span><br><span class="line">x_data = np.linspace(-1, 1, 300)[:, np.newaxis]</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>生成噪点</p>
-<a id="more"></a>
+<h1 id="生成函数图"><a href="#生成函数图" class="headerlink" title="生成函数图"></a>生成函数图</h1><h2 id="生成x轴数据"><a href="#生成x轴数据" class="headerlink" title="生成x轴数据"></a>生成x轴数据</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># np.linspace</span><br><span class="line"># 在指定的间隔内返回均匀间隔的数字</span><br><span class="line"># np.newaxis()</span><br><span class="line"># 插入新维度， 在使用功能上等价于None, 其实就是None的一个别名, 可以用None代替</span><br><span class="line"># 生成一个 [[-1] [-0.9...]...[...], [1]] 的 300行1列 矩阵</span><br><span class="line">x_data = np.linspace(-1, 1, 300)[:, np.newaxis]</span><br></pre></td></tr></table></figure>
+<h2 id="生成噪点"><a href="#生成噪点" class="headerlink" title="生成噪点"></a>生成噪点</h2><a id="more"></a>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 加噪点， 标准方差为 0.05</span><br><span class="line"># np.random.normal(size,loc,scale): </span><br><span class="line"># 给出均值为loc，标准差为scale的高斯随机数（场）</span><br><span class="line"># [[xxxe-02][xxxe-02][xxxe-02]...]  size和x_data一致</span><br><span class="line">noise = np.random.normal(0, 0.05, x_data.shape)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>生成y轴数据</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># y = x^2 - 0.5 + noise </span><br><span class="line">y_data = np.square(x_data) - 0.5 + noise</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>绘图</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fig = plt.figure() </span><br><span class="line">ax = fig.add_subplot(1,1,1)</span><br><span class="line"># ax.scatter(x_data, y_data)</span><br><span class="line">plt.plot(x_data, y_data)</span><br><span class="line"># plt.ion() # 不暂停</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
+<h2 id="生成y轴数据"><a href="#生成y轴数据" class="headerlink" title="生成y轴数据"></a>生成y轴数据</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># y = x^2 - 0.5 + noise </span><br><span class="line">y_data = np.square(x_data) - 0.5 + noise</span><br></pre></td></tr></table></figure>
+<h2 id="绘图"><a href="#绘图" class="headerlink" title="绘图"></a>绘图</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fig = plt.figure() </span><br><span class="line">ax = fig.add_subplot(1,1,1)</span><br><span class="line"># ax.scatter(x_data, y_data)</span><br><span class="line">plt.plot(x_data, y_data)</span><br><span class="line"># plt.ion() # 不暂停</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
 <p><img src="../Figure_1.png" alt="折线图"></p>
-<ol>
-<li>散点图<br>plt.scatter(x_data, y_data)</li>
-</ol>
+<h2 id="散点图"><a href="#散点图" class="headerlink" title="散点图"></a>散点图</h2><p>plt.scatter(x_data, y_data)</p>
 <p><img src="../Figure_2.png" alt="散点图"></p>
-<h1 id="定义隐藏层"><a href="#定义隐藏层" class="headerlink" title="定义隐藏层"></a>定义隐藏层</h1><h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h2 id="tensorflow"><a href="#tensorflow" class="headerlink" title="tensorflow"></a>tensorflow</h2><p>tf.random_normal(shape, mean=0.0, stddev=1.0, dtype=tf.float32, seed=None, name=None)</p>
+<h1 id="定义隐藏层"><a href="#定义隐藏层" class="headerlink" title="定义隐藏层"></a>定义隐藏层</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">def add_layer(inputs, in_size, out_size, activation_function = None):</span><br><span class="line">    # 权值</span><br><span class="line">    w = tf.Variable(tf.random_normal([in_size, out_size]))</span><br><span class="line">    # 偏置</span><br><span class="line">    b = tf.Variable(tf.zeros([1, out_size]) + 0.1)</span><br><span class="line">    z = tf.matmul(inputs, w) + b</span><br><span class="line">    if activation_function is None:</span><br><span class="line">        outputs = z</span><br><span class="line">    else:</span><br><span class="line">        outputs = activation_function(z)</span><br><span class="line">    return outputs</span><br></pre></td></tr></table></figure>
+<p><img src="../img.jpg" alt="img"></p>
+<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h2 id="tensorflow"><a href="#tensorflow" class="headerlink" title="tensorflow"></a>tensorflow</h2><p>tf.random_normal(shape, mean=0.0, stddev=1.0, dtype=tf.float32, seed=None, name=None)</p>
 <ul>
 <li>从服从指定正太分布的数值中取出指定个数的值</li>
 <li>shape: 输出张量的形状，必选</li>
@@ -406,7 +391,7 @@
         <p><span>本文标题:</span><a href="/2019/02/17/tensorflow/quadratic_equation/">拟合一元二次方程过程</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">yimi</a></p>
         <p><span>发布时间:</span>2019-02-17, 20:32:17</p>
-        <p><span>最后更新:</span>2019-02-17, 20:58:19</p>
+        <p><span>最后更新:</span>2019-02-17, 21:16:09</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/02/17/tensorflow/quadratic_equation/" title="拟合一元二次方程过程">http://wttwhite.github.io/2019/02/17/tensorflow/quadratic_equation/</a>
             <span class="copy-path" data-clipboard-text="原文: http://wttwhite.github.io/2019/02/17/tensorflow/quadratic_equation/　　作者: yimi" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -436,7 +421,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#生成函数图"><span class="toc-number">1.</span> <span class="toc-text">生成函数图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#定义隐藏层"><span class="toc-number">2.</span> <span class="toc-text">定义隐藏层</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#函数"><span class="toc-number">3.</span> <span class="toc-text">函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#tensorflow"><span class="toc-number">3.1.</span> <span class="toc-text">tensorflow</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#numpy"><span class="toc-number">3.2.</span> <span class="toc-text">numpy</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#整体代码"><span class="toc-number">4.</span> <span class="toc-text">整体代码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解决报错"><span class="toc-number">5.</span> <span class="toc-text">解决报错</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#生成函数图"><span class="toc-number">1.</span> <span class="toc-text">生成函数图</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#生成x轴数据"><span class="toc-number">1.1.</span> <span class="toc-text">生成x轴数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生成噪点"><span class="toc-number">1.2.</span> <span class="toc-text">生成噪点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生成y轴数据"><span class="toc-number">1.3.</span> <span class="toc-text">生成y轴数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#绘图"><span class="toc-number">1.4.</span> <span class="toc-text">绘图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#散点图"><span class="toc-number">1.5.</span> <span class="toc-text">散点图</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#定义隐藏层"><span class="toc-number">2.</span> <span class="toc-text">定义隐藏层</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#函数"><span class="toc-number">3.</span> <span class="toc-text">函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#tensorflow"><span class="toc-number">3.1.</span> <span class="toc-text">tensorflow</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#numpy"><span class="toc-number">3.2.</span> <span class="toc-text">numpy</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#整体代码"><span class="toc-number">4.</span> <span class="toc-text">整体代码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解决报错"><span class="toc-number">5.</span> <span class="toc-text">解决报错</span></a></li></ol>
         
     </div>
     <style>
@@ -504,7 +489,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/02/17/tensorflow/quadratic_equation/">拟合一元二次方程过程</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/13/python/data_type/">python内置数据结构</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/10/matlab-查看自带函数源代码/">如何查看matlab自带函数的源代码</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/15/python/python/">python基础知识</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/15/正则表达式/正则表达式/">正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/06/插件/完美滚动条/">完美滚动条:prefect-scrollbar</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/js模块规范/CMD/CMD/">CMD</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/js模块规范/AMD/AMD/">AMD</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/js模块规范/commonjs/commomjs/">CommonJS</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/backbone/first/">backbone零基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/backbone/second/">backbone使用Collection</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/11/vue/vue_first/">vue知识总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/11/matlab/matlab-查看自带函数源代码/">如何查看matlab自带函数的源代码</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/28/sublime/sublime vue/">sublime vue 语法高亮插件安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/27/markdown/markdown/">markdown</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/03/demo/爱心小鱼/">爱心小鱼</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/30/myLife/">随记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/07/jquery/jQuery-插件编写/">jQuery插件的编写</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/14/javascript/避免js冲突/">避免JS冲突</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/13/javascript/JS-object/">Js对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/08/javascript/JS-prototype/">Js原型链</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/02/17/tensorflow/quadratic_equation/">拟合一元二次方程过程</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/13/python/data_type/">python内置数据结构</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/10/matlab-查看自带函数源代码/">如何查看matlab自带函数的源代码</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/15/python/python/">python基础知识</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/15/正则表达式/正则表达式/">正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/06/插件/完美滚动条/">完美滚动条:prefect-scrollbar</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/js模块规范/CMD/CMD/">CMD</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/js模块规范/AMD/AMD/">AMD</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/js模块规范/commonjs/commomjs/">CommonJS</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/backbone/second/">backbone使用Collection</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/backbone/first/">backbone零基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/11/vue/vue_first/">vue知识总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/11/matlab/matlab-查看自带函数源代码/">如何查看matlab自带函数的源代码</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/28/sublime/sublime vue/">sublime vue 语法高亮插件安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/27/markdown/markdown/">markdown</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/03/demo/爱心小鱼/">爱心小鱼</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/30/myLife/">随记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/07/jquery/jQuery-插件编写/">jQuery插件的编写</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/14/javascript/避免js冲突/">避免JS冲突</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/13/javascript/JS-object/">Js对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/08/javascript/JS-prototype/">Js原型链</a></li></ul>
 
 
 
