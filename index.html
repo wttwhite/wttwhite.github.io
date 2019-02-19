@@ -184,7 +184,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/backbone/">backbone</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/basics/">basics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/command-line/">command-line</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jquery/">jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js模块规范/">js模块规范</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/knowledge/">knowledge</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/knowledge-point/">knowledge point</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime/">sublime</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tensorflow/">tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/插件/">插件</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/backbone/">backbone</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/basics/">basics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/command-line/">command-line</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jquery/">jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js模块规范/">js模块规范</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/knowledge/">knowledge</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/knowledge-point/">knowledge point</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime/">sublime</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tensorflow/">tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/库/">库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/插件/">插件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/爬虫/">爬虫</a></li></ul>
                     </div>
                 </section>
                 
@@ -261,6 +261,143 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-python/pandas" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/02/19/python/pandas/" class="article-date">
+      <time datetime="2019-02-19T14:47:51.814Z" itemprop="datePublished">2019-02-19</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/19/python/pandas/">pandas分析数据</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">数据清洗</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">import pandas as pd</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line"></span><br><span class="line">plt.rcParams[&apos;font.sans-serif&apos;] = [&apos;SimHei&apos;]</span><br><span class="line">plt.rcParams[&apos;axes.unicode_minus&apos;] = False</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">    aqi_data = pd.read_csv(&apos;china_city_aqi.csv&apos;)</span><br><span class="line">    # 前两行</span><br><span class="line">    # print(aqi_data.head(2))</span><br><span class="line">    # 后两行</span><br><span class="line">    # print(aqi_data.tail(2))</span><br><span class="line">    # print(&apos;基本信息： &apos;)</span><br><span class="line">    # print(aqi_data.info())</span><br><span class="line"></span><br><span class="line">    # 数据清洗</span><br><span class="line">    # 只保留数据 &gt; 0 </span><br><span class="line">    # filter_condition = aqi_data[&apos;AQI&apos;] &gt; 0</span><br><span class="line">    # clean_aqi_data = aqi_data[filter_condition]</span><br><span class="line"></span><br><span class="line">    clean_aqi_data = aqi_data[aqi_data[&apos;AQI&apos;] &gt; 0]</span><br><span class="line"></span><br><span class="line">    # print(&apos;AQI最大值： &apos;, aqi_data[&apos;AQI&apos;].max())</span><br><span class="line">    # print(&apos;AQI均值： &apos;, aqi_data[&apos;AQI&apos;].mean())</span><br><span class="line"></span><br><span class="line">    # top10</span><br><span class="line">    top10 = clean_aqi_data.sort_values(by=[&apos;AQI&apos;]).head(50)</span><br><span class="line">    # print(&apos;空气质量最好的10个城市：&apos;, top10)</span><br><span class="line"></span><br><span class="line">    top10.plot(kind=&apos;bar&apos;, x=&apos;city&apos;, y=&apos;AQI&apos;, title=&apos;空气最好的10个城市&apos;, figsize=(20, 10))</span><br><span class="line">    plt.savefig(&apos;top_10_aqi.png&apos;)</span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line">    bottom10 = clean_aqi_data.sort_values(by=[&apos;AQI&apos;], ascending=False).head(10)</span><br><span class="line">    # print(&apos;空气质量最差的10个城市：&apos;, bottom10)</span><br><span class="line"></span><br><span class="line">    # 数据保存csv文件, 不要索引号</span><br><span class="line">    # top10.to_csv(&apos;top10_aqi.csv&apos;, index=False)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/python/">python</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/库/">库</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-python/web-crawler" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/02/19/python/web-crawler/" class="article-date">
+      <time datetime="2019-02-19T14:23:29.039Z" itemprop="datePublished">2019-02-19</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/19/python/web-crawler/">用python实现网络爬取数据</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="获取所有的数据，保存在csv文件中"><a href="#获取所有的数据，保存在csv文件中" class="headerlink" title="获取所有的数据，保存在csv文件中"></a>获取所有的数据，保存在csv文件中</h1><h2 id="引入的库"><a href="#引入的库" class="headerlink" title="引入的库"></a>引入的库</h2><ul>
+<li>import requests</li>
+<li>from bs4 import BeautifulSoup<ul>
+<li>解析html的库</li>
+</ul>
+</li>
+<li>import csv<h2 id="main函数"><a href="#main函数" class="headerlink" title="main函数"></a>main函数</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">def main():</span><br><span class="line">    city_list = get_all_citys()</span><br><span class="line"></span><br><span class="line">    header = [&apos;city&apos;, &apos;AQI&apos;, &apos;pm2.5/h&apos;, &apos;pm10/h&apos;, &apos;co/h&apos;, &apos;no2/h&apos;, &apos;o3/h&apos;, &apos;o3/8h&apos;, &apos;so2/h&apos;]</span><br><span class="line">    # 写入的方式打开文件，没有会自动创建</span><br><span class="line">    with open(&apos;china_city_aqi.csv&apos;, &apos;w&apos;, encoding=&apos;utf-8&apos;, newline=&apos;&apos;) as f:</span><br><span class="line">        # 拿到writer</span><br><span class="line">        writer = csv.writer(f)</span><br><span class="line">        # 写入第一行</span><br><span class="line">        writer.writerow(header)</span><br><span class="line">        # enumerate获取索引号</span><br><span class="line">        for i, city in enumerate(city_list):</span><br><span class="line">            city_name = city[0]</span><br><span class="line">            city_pinyin = city[1]</span><br><span class="line">            city_aqi = get_city_aqi(city_pinyin)</span><br><span class="line">            # 列表相加</span><br><span class="line">            row = [city_name] + city_aqi</span><br><span class="line">            writer.writerow(row)</span><br><span class="line">            if (i + 1) % 10 == 0:</span><br><span class="line">                print(&apos;已处理&#123;&#125;条记录， 共&#123;&#125;条记录&apos;.format(i+1, len(city_list)))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="获取所有城市的名字和链接：-get-all-citys"><a href="#获取所有城市的名字和链接：-get-all-citys" class="headerlink" title="获取所有城市的名字和链接： get_all_citys()"></a>获取所有城市的名字和链接： get_all_citys()</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">def get_all_citys():</span><br><span class="line">    # 首页地址</span><br><span class="line">    url = &apos;http://pm25.in/&apos;</span><br><span class="line">    # 获取整个页面的html</span><br><span class="line">    r = requests.get(url, timeout = 30)</span><br><span class="line">    soup = BeautifulSoup(r.text, &apos;lxml&apos;)</span><br><span class="line">    city_div = soup.find(&apos;div&apos;, &#123;&apos;class&apos;: &apos;all&apos;&#125;).find(&apos;div&apos;, &#123;&apos;class&apos;: &apos;bottom&apos;&#125;)</span><br><span class="line">    city_link = city_div.find_all(&apos;a&apos;)</span><br><span class="line">    city_list = []</span><br><span class="line">    for link in city_link:</span><br><span class="line">        city_name = link.text</span><br><span class="line">        # href=&quot;/beijing&quot;</span><br><span class="line">        city_pinyin = link[&apos;href&apos;][1:] # 去掉斜杠</span><br><span class="line">        # 以元祖的形式保存</span><br><span class="line">        city_list.append((city_name, city_pinyin))</span><br><span class="line">    return city_list</span><br></pre></td></tr></table></figure>
+<h2 id="获取特定城市的数据：-get-city-aqi-city"><a href="#获取特定城市的数据：-get-city-aqi-city" class="headerlink" title="获取特定城市的数据： get_city_aqi(city)"></a>获取特定城市的数据： get_city_aqi(city)</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">def get_city_aqi(city):</span><br><span class="line">    url = &apos;http://pm25.in/&apos; + city</span><br><span class="line">    r = requests.get(url, timeout = 30)</span><br><span class="line">    soup = BeautifulSoup(r.text, &apos;lxml&apos;)</span><br><span class="line">    div_list = soup.find_all(&apos;div&apos;, &#123;&apos;class&apos;: &apos;span1&apos;&#125;)</span><br><span class="line"></span><br><span class="line">    city_aqi = []</span><br><span class="line">    # 一共要获取8个数据</span><br><span class="line">    for i in range(8):</span><br><span class="line">        div_content = div_list[i]</span><br><span class="line">        # strip去掉前后空格</span><br><span class="line">        caption = div_content.find(&apos;div&apos;, &#123;&apos;class&apos;: &apos;caption&apos;&#125;).text.strip()</span><br><span class="line">        value = div_content.find(&apos;div&apos;, &#123;&apos;class&apos;: &apos;value&apos;&#125;).text.strip()</span><br><span class="line">        # city_aqi.append((caption, value))</span><br><span class="line">        city_aqi.append(value)</span><br><span class="line">    return city_aqi</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/python/">python</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/爬虫/">爬虫</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-tensorflow/quadratic_equation" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -312,7 +449,7 @@
 
       
         <p class="article-more-link">
-          <a href="/2019/02/17/tensorflow/quadratic_equation/#more">more >></a>
+          <a href="/2019/02/17/tensorflow/quadratic_equation/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -381,7 +518,7 @@
 
       
         <p class="article-more-link">
-          <a href="/2019/02/13/python/data_type/#more">more >></a>
+          <a href="/2019/02/13/python/data_type/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -519,7 +656,7 @@ matlab中的一些内置函数是看不到源码的，比如：max,min,find…�
 
       
         <p class="article-more-link">
-          <a href="/2017/10/15/python/python/#more">more >></a>
+          <a href="/2017/10/15/python/python/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -628,7 +765,7 @@ matlab中的一些内置函数是看不到源码的，比如：max,min,find…�
 
       
         <p class="article-more-link">
-          <a href="/2017/10/15/正则表达式/正则表达式/#more">more >></a>
+          <a href="/2017/10/15/正则表达式/正则表达式/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -698,145 +835,7 @@ matlab中的一些内置函数是看不到源码的，比如：max,min,find…�
 
       
         <p class="article-more-link">
-          <a href="/2017/09/06/插件/完美滚动条/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-js模块规范/CMD/CMD" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/07/22/js模块规范/CMD/CMD/" class="article-date">
-      <time datetime="2017-07-22T03:40:01.323Z" itemprop="datePublished">2017-07-22</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/22/js模块规范/CMD/CMD/">CMD</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>CMD规范和AMD相似，尽量保持简单，并且与CommonJS和NodeJS的Modules规范保持了很大的兼容性。<br>AMD和CMD都是用<code>difine</code>和<code>require</code>，但是CMD标准倾向于在使用过程中提出依赖，就是不管代码写到哪突然发现需要依赖另一个模块，那就在当前代码用<code>require</code>引入就可以了，规范会帮你搞定预加载，你随便写就可以了。但是AMD标准让你必须提前在头部依赖参数部分写好（没有写好？ 倒回去写好咯）。这就是最明显的区别。</p>
-<h3 id="AMD和CMD的区别"><a href="#AMD和CMD的区别" class="headerlink" title="AMD和CMD的区别"></a>AMD和CMD的区别
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/web/">web</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js模块规范/">js模块规范</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2017/07/22/js模块规范/CMD/CMD/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-js模块规范/AMD/AMD" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/07/22/js模块规范/AMD/AMD/" class="article-date">
-      <time datetime="2017-07-22T03:40:01.307Z" itemprop="datePublished">2017-07-22</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/22/js模块规范/AMD/AMD/">AMD</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>AMD规范其实只有一个主要接口 <code>define(id,dependencies,factory)</code>，它要在声明模块的时候指定所有的依赖<code>dependencies</code>，并且还要当做形参传到<code>factory</code>中，对于依赖的模块提前执行，依赖前置<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">define(<span class="string">"module"</span>, [<span class="string">"dep1"</span>, <span class="string">"dep2"</span>], <span class="function"><span class="keyword">function</span>(<span class="params">d1, d2</span>) </span>&#123;  </span><br><span class="line">  <span class="keyword">return</span> someExportedValue;  </span><br><span class="line">&#125;);  </span><br><span class="line"><span class="built_in">require</span>([<span class="string">"module"</span>, <span class="string">"../file"</span>], <span class="function"><span class="keyword">function</span>(<span class="params">module, file</span>) </span>&#123; <span class="comment">/* ... */</span> &#125;);</span><br></pre></td></tr></table></figure></p>
-<h3 id="require函数调用模块"><a href="#require函数调用模块" class="headerlink" title="require函数调用模块"></a>require函数调用模块
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/web/">web</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js模块规范/">js模块规范</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2017/07/22/js模块规范/AMD/AMD/#more">more >></a>
+          <a href="/2017/09/06/插件/完美滚动条/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>

@@ -184,7 +184,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/backbone/">backbone</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/basics/">basics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/command-line/">command-line</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jquery/">jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js模块规范/">js模块规范</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/knowledge/">knowledge</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/knowledge-point/">knowledge point</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime/">sublime</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tensorflow/">tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/插件/">插件</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/backbone/">backbone</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/basics/">basics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/command-line/">command-line</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jquery/">jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js模块规范/">js模块规范</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/knowledge/">knowledge</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/knowledge-point/">knowledge point</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime/">sublime</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tensorflow/">tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/库/">库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/插件/">插件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/爬虫/">爬虫</a></li></ul>
                     </div>
                 </section>
                 
@@ -261,6 +261,144 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-js模块规范/CMD/CMD" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/07/22/js模块规范/CMD/CMD/" class="article-date">
+      <time datetime="2017-07-22T03:40:01.323Z" itemprop="datePublished">2017-07-22</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/22/js模块规范/CMD/CMD/">CMD</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>CMD规范和AMD相似，尽量保持简单，并且与CommonJS和NodeJS的Modules规范保持了很大的兼容性。<br>AMD和CMD都是用<code>difine</code>和<code>require</code>，但是CMD标准倾向于在使用过程中提出依赖，就是不管代码写到哪突然发现需要依赖另一个模块，那就在当前代码用<code>require</code>引入就可以了，规范会帮你搞定预加载，你随便写就可以了。但是AMD标准让你必须提前在头部依赖参数部分写好（没有写好？ 倒回去写好咯）。这就是最明显的区别。</p>
+<h3 id="AMD和CMD的区别"><a href="#AMD和CMD的区别" class="headerlink" title="AMD和CMD的区别"></a>AMD和CMD的区别
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/web/">web</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js模块规范/">js模块规范</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2017/07/22/js模块规范/CMD/CMD/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-js模块规范/AMD/AMD" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/07/22/js模块规范/AMD/AMD/" class="article-date">
+      <time datetime="2017-07-22T03:40:01.307Z" itemprop="datePublished">2017-07-22</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/22/js模块规范/AMD/AMD/">AMD</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>AMD规范其实只有一个主要接口 <code>define(id,dependencies,factory)</code>，它要在声明模块的时候指定所有的依赖<code>dependencies</code>，并且还要当做形参传到<code>factory</code>中，对于依赖的模块提前执行，依赖前置<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">define(<span class="string">"module"</span>, [<span class="string">"dep1"</span>, <span class="string">"dep2"</span>], <span class="function"><span class="keyword">function</span>(<span class="params">d1, d2</span>) </span>&#123;  </span><br><span class="line">  <span class="keyword">return</span> someExportedValue;  </span><br><span class="line">&#125;);  </span><br><span class="line"><span class="built_in">require</span>([<span class="string">"module"</span>, <span class="string">"../file"</span>], <span class="function"><span class="keyword">function</span>(<span class="params">module, file</span>) </span>&#123; <span class="comment">/* ... */</span> &#125;);</span><br></pre></td></tr></table></figure></p>
+<h3 id="require函数调用模块"><a href="#require函数调用模块" class="headerlink" title="require函数调用模块"></a>require函数调用模块
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/web/">web</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js模块规范/">js模块规范</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2017/07/22/js模块规范/AMD/AMD/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-js模块规范/commonjs/commomjs" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -311,7 +449,7 @@
 
       
         <p class="article-more-link">
-          <a href="/2017/07/22/js模块规范/commonjs/commomjs/#more">more >></a>
+          <a href="/2017/07/22/js模块规范/commonjs/commomjs/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -360,7 +498,7 @@
       
           
               <p>html部分同之前没有用collection的一样,这里就不赘述了.</p>
-<h3 id="template部分"><a href="#template部分" class="headerlink" title="template部分"></a>template部分</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/template"</span> id=<span class="string">"content_template"</span>&gt;</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"content"</span>&gt;</span></span><br><span class="line">        显示</span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> &lt;%= <span class="attr">obj.done</span>?'<span class="attr">checked</span>= "<span class="attr">checked</span>"'<span class="attr">:</span>'' %&gt;</span> /&gt;是否选择 </span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="template部分"><a href="#template部分" class="headerlink" title="template部分"></a>template部分</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/template"</span> id=<span class="string">"content_template"</span>&gt;</span><br><span class="line">    &lt;div id="content"&gt;</span><br><span class="line">        显示</span><br><span class="line">        &lt;input type="checkbox" &lt;%= obj.done?'checked= "checked"':'' %&gt; /&gt;是否选择 </span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 <h3 id="model部分"><a href="#model部分" class="headerlink" title="model部分"></a>model部分</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> Test =Backbone.Model.extend(&#123;</span><br><span class="line">    <span class="keyword">default</span>:&#123;</span><br><span class="line">        done:<span class="literal">false</span>  <span class="comment">//默认不选</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <h3 id="collection部分"><a href="#collection部分" class="headerlink" title="collection部分"></a>collection部分
           
@@ -382,7 +520,7 @@
 
       
         <p class="article-more-link">
-          <a href="/2017/07/22/backbone/second/#more">more >></a>
+          <a href="/2017/07/22/backbone/second/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -450,7 +588,7 @@
 
       
         <p class="article-more-link">
-          <a href="/2017/07/22/backbone/first/#more">more >></a>
+          <a href="/2017/07/22/backbone/first/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -520,7 +658,7 @@
 
       
         <p class="article-more-link">
-          <a href="/2017/07/11/vue/vue_first/#more">more >></a>
+          <a href="/2017/07/11/vue/vue_first/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -658,129 +796,6 @@ matlab中的一些内置函数是看不到源码的，比如：max,min,find…�
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sublime/">sublime</a></li></ul>
     </div>
 
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-markdown/markdown" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/03/27/markdown/markdown/" class="article-date">
-      <time datetime="2017-03-27T06:33:04.425Z" itemprop="datePublished">2017-03-27</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/27/markdown/markdown/">markdown</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>duanl<br>    <pre>code</pre></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/Web/">Web</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/markdown/">markdown</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-demo/爱心小鱼" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/01/03/demo/爱心小鱼/" class="article-date">
-      <time datetime="2017-01-03T09:34:08.382Z" itemprop="datePublished">2017-01-03</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/03/demo/爱心小鱼/">爱心小鱼</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <font size="4" style="margin-left:40px;">这个小<a href="https://github.com/wttwhite/small-demo/tree/master/%E7%88%B1%E5%BF%83%E5%B0%8F%E9%B1%BC%E6%B8%B8%E6%88%8F" target="_blank" rel="external">demo</a>是在大概一年前跟着慕课网学习时写的，当时就添加了一些自己想到的小功能：<br>1.增加了倒计时功能(定时器)；<br>2.增加了游戏开始前的提示；<br>3.增加了大鱼吃果实的音效，大鱼喂小鱼的音效，最后十秒倒计时和计时停止时的音效；<br></font><br><font size="4" style="margin-left:40px;">最近又突然想起了这个小游戏，把每次重新开始游戏必须按F5，这个完善了下。游戏结束后，点击重新开始游戏，页面就会刷新。</font>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/Demo/">Demo</a>
-    </div>
-
-
-      
       
       <div class="clearfix"></div>
     </div>
