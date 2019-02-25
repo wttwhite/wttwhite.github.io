@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html >
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="yimi" />
+
+
+
+<meta name="description" content="基本概念计算模型(计算图)// 还没看懂
+数据模型(张量)所有数据都是通过张量的形式来表示, 在张量中并没有真正保存数字, 它保存的是如何得到这些数字的计算过程
+对中间结果的引用# a和b 就是对常量生成这个运算结果的引用a = tf.constant([1.0, 2.0], name =&amp;quot;a&amp;quot;)b = tf.constant([2.0, 3.0], name =&amp;quot;b">
+<meta property="og:type" content="article">
+<meta property="og:title" content="拟合一元二次方程过程">
+<meta property="og:url" content="http://wttwhite.github.io/2019/02/25/tensorflow/learning/index.html">
+<meta property="og:site_name" content="blog">
+<meta property="og:description" content="基本概念计算模型(计算图)// 还没看懂
+数据模型(张量)所有数据都是通过张量的形式来表示, 在张量中并没有真正保存数字, 它保存的是如何得到这些数字的计算过程
+对中间结果的引用# a和b 就是对常量生成这个运算结果的引用a = tf.constant([1.0, 2.0], name =&amp;quot;a&amp;quot;)b = tf.constant([2.0, 3.0], name =&amp;quot;b">
+<meta property="og:updated_time" content="2019-02-25T15:16:47.229Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="拟合一元二次方程过程">
+<meta name="twitter:description" content="基本概念计算模型(计算图)// 还没看懂
+数据模型(张量)所有数据都是通过张量的形式来表示, 在张量中并没有真正保存数字, 它保存的是如何得到这些数字的计算过程
+对中间结果的引用# a和b 就是对常量生成这个运算结果的引用a = tf.constant([1.0, 2.0], name =&amp;quot;a&amp;quot;)b = tf.constant([2.0, 3.0], name =&amp;quot;b">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+
+
+    <link rel="shortcut icon" href="/img/favicon.jpeg">
+
+
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>拟合一元二次方程过程 | blog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: false,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/author.jpeg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">yimi</a></h1>
+        </hgroup>
+
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>Menu</li>
+                        <li>Tags</li>
+                        
+                        <li>Friends</li>
+                        
+                        
+                        <li>About Me</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:wangtt12034@126.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="/wttwhite" title="GitHub"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/backbone/">backbone</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/basics/">basics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/command-line/">command-line</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/demo/">demo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jquery/">jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js模块规范/">js模块规范</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/knowledge/">knowledge</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/knowledge-point/">knowledge point</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/learn/">learn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime/">sublime</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/库/">库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/插件/">插件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/爬虫/">爬虫</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://cheesemucha.cn">Echo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://jyzwf.ttps://pages.github.com/">弦冰</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于学习</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">yimi</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/author.jpeg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">yimi</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:wangtt12034@126.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="/wttwhite" title="GitHub"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
+</nav>
+      <div class="body-wrap"><article id="post-tensorflow/learning" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/02/25/tensorflow/learning/" class="article-date">
+      <time datetime="2019-02-25T13:48:38.280Z" itemprop="datePublished">2019-02-25</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      拟合一元二次方程过程
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/tensorflow/">tensorflow</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/learn/">learn</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><h2 id="计算模型-计算图"><a href="#计算模型-计算图" class="headerlink" title="计算模型(计算图)"></a>计算模型(计算图)</h2><p>// 还没看懂</p>
+<h2 id="数据模型-张量"><a href="#数据模型-张量" class="headerlink" title="数据模型(张量)"></a>数据模型(张量)</h2><p>所有数据都是通过张量的形式来表示, 在张量中并没有真正保存数字, 它保存的是如何得到这些数字的计算过程</p>
+<h3 id="对中间结果的引用"><a href="#对中间结果的引用" class="headerlink" title="对中间结果的引用"></a>对中间结果的引用</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># a和b 就是对常量生成这个运算结果的引用</span><br><span class="line">a = tf.constant([1.0, 2.0], name =&quot;a&quot;)</span><br><span class="line">b = tf.constant([2.0, 3.0], name =&quot;b&quot;)</span><br><span class="line">result = a + b</span><br><span class="line"></span><br><span class="line"># Tensor(&quot;add:0&quot;, shape=(2,), dtype=float32)</span><br></pre></td></tr></table></figure>
+<h3 id="获得计算结果"><a href="#获得计算结果" class="headerlink" title="获得计算结果"></a>获得计算结果</h3><p>当计算图构造完成之后, 张量可以用来获得计算结果, 也就是得到真实的数字<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">print(tf.Session().run(result))</span><br><span class="line"># [3. 5.]</span><br></pre></td></tr></table></figure></p>
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><ul>
+<li>变量与张量的关系<ul>
+<li>在tf中, 变量的声明函数tf.Variable是一个运算, 这个运算的结果就是一个张量</li>
+<li>变量是特殊的张量</li>
+</ul>
+</li>
+<li>所有变量都会被自动加入到GraphKeys.VARIABLES集合</li>
+<li>如果声明函数时参数trainable为True, 那么这个变量将会被加入GraphKeys.TRAINABLE_VARIABLES</li>
+<li>tf中提供的神经网络优化算法会将GraphKeys.TRAINABLE_VARIABLES集合中的变量作为默认的优化对象</li>
+<li>类型<ul>
+<li>一个变量在构建之后, 它的类型就不能再改变</li>
+</ul>
+</li>
+<li>维度(shape)<ul>
+<li>维度在程序运行中是有可能改变的, 但是需要通过设置参数validate_shape = False</li>
+<li>虽然tf支持更改维度, 但是实际中很少用<h2 id="运行模型-会话"><a href="#运行模型-会话" class="headerlink" title="运行模型(会话)"></a>运行模型(会话)</h2></li>
+</ul>
+</li>
+<li>会话拥有并管理tf程序运行时的所有资源</li>
+<li>当所有计算完成之后,需要关闭会话来帮助系统回收资源, 否则就可能出现资源泄露的问题<h3 id="第一种模式"><a href="#第一种模式" class="headerlink" title="第一种模式"></a>第一种模式</h3>明确调用会话生成函数和关闭会话函数<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 创建一个会话</span><br><span class="line">sess = tf.Session()</span><br><span class="line"># 得到运算结果</span><br><span class="line">sess.run(result)</span><br><span class="line"># 关闭会话使得本次运行中的资源可以被释放</span><br><span class="line">sess.close()</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="实现神经网络"><a href="#实现神经网络" class="headerlink" title="实现神经网络"></a>实现神经网络</h1><p>通过对参数的合理设置来解决分类或者回归问题</p>
+<ul>
+<li>特征向量<ul>
+<li>所有用于描述实体的数字的组合就是一个实体的特征向量, 通过特征提取, 就可以将实际问题中的实体转化为空间中的点</li>
+</ul>
+</li>
+<li>神经网络结构<ul>
+<li>不同的神经元之间的连接结构</li>
+</ul>
+</li>
+<li>神经网络的优化过程<ul>
+<li>优化神经元中参数的取值过程</li>
+</ul>
+</li>
+<li>全连接神经网络<ul>
+<li>相邻两层之间任意两个节点之间都有连接</li>
+</ul>
+</li>
+<li>每个神经元的输入既可以是其他神经元的输出, 也可以是整个神经网络的输入</li>
+<li>一个最简单的神经元结构的输出就是所有输入的加权和, 不同输入的权重就是神经元的参数</li>
+</ul>
+<h2 id="神经网络解决分类问题"><a href="#神经网络解决分类问题" class="headerlink" title="神经网络解决分类问题"></a>神经网络解决分类问题</h2><ul>
+<li>提取问题中实体的特征向量作为输入</li>
+<li>定义神经网络的结构, 并定义如何从神经网络的输入得到输出(前向传播算法)</li>
+<li>通过训练数据集来调整神经网络中参数的取值(训练)</li>
+<li>使用训练好的神经网络来预测未知的数据<h3 id="前向传播算法"><a href="#前向传播算法" class="headerlink" title="前向传播算法"></a>前向传播算法</h3></li>
+<li><p>计算神经网络的前向传播结果需要三部分信息</p>
+<ul>
+<li>神经网络的输入, 就是从实体中提取的特征向量</li>
+<li>神经网络的连接结构<ul>
+<li>神经网络是由神经元构成的, 神经网络的结构给出不同神经元(节点)之间输入输出的连接关系</li>
+</ul>
+</li>
+<li>每个神经元中的参数<h3 id="监督学习方式"><a href="#监督学习方式" class="headerlink" title="监督学习方式"></a>监督学习方式</h3>使用监督学习的方式来更合理地设置参数取值, 设置神经网络参数的过程就是神经网络的训练过程, 只有经过有效训练的神经网络模型才可以真正的解决分类或者回归问题</li>
+</ul>
+<blockquote>
+<p>使用监督学习的方式设置神经网络参数需要一个标注好的训练数据集 (eg. 收集的一批合格和不合格的零件)</p>
+</blockquote>
+<p><strong>重要思想: 在已知答案的标注数据集上, 模型给出的预测结果要尽量接近真实答案</strong></p>
+<p>通过调整神经网络中的参数对训练数据进行拟合, 可以使得模型对未知的样本提供预测的能力</p>
+</li>
+</ul>
+<h2 id="训练神经网络过程"><a href="#训练神经网络过程" class="headerlink" title="训练神经网络过程"></a>训练神经网络过程</h2><ul>
+<li>定义神经网络的结构和前向传播的输出结果</li>
+<li>定义损失函数以及选择反向传播优化的算法</li>
+<li>生成会话并在训练数据上反复运行反向传播优化算法</li>
+</ul>
+<h1 id="深度神经网络"><a href="#深度神经网络" class="headerlink" title="深度神经网络"></a>深度神经网络</h1><p>神经网络有两个非常重要的特性 ———— 多层 和 非线性</p>
+<ul>
+<li>多层<ul>
+<li>感知机<ul>
+<li>感知机可以简单地理解为单层的神经网络</li>
+<li>将输入进行加权和，通过激活函数，得到输出，没有隐藏层</li>
+</ul>
+</li>
+<li>异或问题<ul>
+<li>如果2个输入的符号相同，则输出0，否则输出1</li>
+<li>感知机无法模拟异或运算的功能</li>
+</ul>
+</li>
+<li>深度神经网络实际上有组合特征提取的功能</li>
+</ul>
+</li>
+<li>线性模型的局限性<ul>
+<li>线性模型最大的特点就是任意线性模型的组合仍然是线性模型</li>
+<li>只通过线性变换，任意层的全连接神经网络和单层神经网络模型的表达能力没有任何区别，而且它们都是线性模型</li>
+<li>线性模型能解决线性可分问题，但在现实世界中，绝大部分问题都是无法线性分割的</li>
+<li>深度学习定义中，特意强调它的目的是为解决更加复杂的问题，至少是无法通过直线（或者高维空间的平面）划分的</li>
+</ul>
+</li>
+<li>激活函数<ul>
+<li>将每个神经元的输出通过一个非线性函数（激活函数），那么整个神经网络的模型也就不再是线性的了</li>
+<li>常用的激活函数<ul>
+<li>ReLu  tf.nn.relu</li>
+<li>sigmoid tf.sigmoid</li>
+<li>tanh  tf.tanh</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h2><h3 id="分类问题"><a href="#分类问题" class="headerlink" title="分类问题"></a>分类问题</h3><p>  分类问题希望解决的是将不同的样本分到事先定义好的类别中</p>
+<p>  通过神经网络解决多分类问题最常用的方法是设置n个输出节点，理想情况下，类别所对应的输出节点值为1，其他都是0</p>
+<ul>
+<li>交叉熵（常用损失函数）<ul>
+<li>两个概率分布之间的距离</li>
+<li>交叉熵值越小，两个概率分布越接近</li>
+<li>y_ * tf.log(tf.clip_by_value(y, 1e-10, 1.0))</li>
+</ul>
+</li>
+<li>softmax回归处理<ul>
+<li>将神经网络的输出变成一个概率分布</li>
+</ul>
+</li>
+<li>因为交叉熵一般会与softmax回归一起使用，所以tf对这两个功能进行了统一封装<ul>
+<li>tf.nn.softmax_cross_entyopy_with<em>logits(y, y</em>)</li>
+<li>y: 输出结果; y_: 标准答案</li>
+</ul>
+</li>
+</ul>
+<h3 id="回归问题"><a href="#回归问题" class="headerlink" title="回归问题"></a>回归问题</h3><p>  回归问题解决的是对具体数值的预测，不是事先定义好的一个类别，而是一个任意实数（房价预测、销量预测等）<br>  解决回归问题的神经网络一般只有一个输出节点，这个节点的输出值就是预测值</p>
+<ul>
+<li>均方误差（常用损失函数，同时也是分类问题常用损失函数）<ul>
+<li>tf.reduce<em>mean(tf.square(y</em> - y))</li>
+</ul>
+</li>
+</ul>
+<h3 id="自定义损失函数"><a href="#自定义损失函数" class="headerlink" title="自定义损失函数"></a>自定义损失函数</h3><p>自定义损失函数，使得神经网络优化的结果更加接近实际问题和需求</p>
+<ul>
+<li>预测商品销量<ul>
+<li>比如在预测商品销量时，假设一个商品的成本是1元，利润是10元。那么少预测一个就少挣10元，多预测一个才少挣1元</li>
+<li>为了最大化利润，需要将损失函数和利润直接联系起来</li>
+<li>不同情况下有不同的预测值<ul>
+<li>正确值比预测值大， 10 * (y_ - y)</li>
+<li>正确值小于等于预测值， 1 * (y - y_)</li>
+</ul>
+</li>
+<li>loss = tf.reduce_sum(tf.select(tf.greater(v1, v2), a<em>(v1-v2), b</em>(v2-v1)))</li>
+</ul>
+</li>
+</ul>
+<h3 id="神经网络优化算法"><a href="#神经网络优化算法" class="headerlink" title="神经网络优化算法"></a>神经网络优化算法</h3><h4 id="反向传播算法"><a href="#反向传播算法" class="headerlink" title="反向传播算法"></a>反向传播算法</h4><ul>
+<li>反向传播算法给出了一个高效的方式在所有参数上使用梯度下降算法，从而使神经网络模型在训练数据上的损失函数尽可能小</li>
+<li>反向传播算法是训练神经网络的核心算法</li>
+</ul>
+<h4 id="梯度下降算法"><a href="#梯度下降算法" class="headerlink" title="梯度下降算法"></a>梯度下降算法</h4><p>主要用于优化单个参数的取值</p>
+<h1 id="函数方法"><a href="#函数方法" class="headerlink" title="函数方法"></a>函数方法</h1><h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><table>
+<thead>
+<tr>
+<th>函数名</th>
+<th>功能</th>
+<th>使用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>get_shape</td>
+<td>获取结果张量的维度信息</td>
+<td>result.get_shape()</td>
+</tr>
+</tbody>
+</table>
+<h2 id="tensorflow-函数"><a href="#tensorflow-函数" class="headerlink" title="tensorflow 函数"></a>tensorflow 函数</h2><table>
+<thead>
+<tr>
+<th>函数名</th>
+<th>功能</th>
+<th>使用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>all_variables</td>
+<td>获取当前计算图上所有的变量, 有助于持久化整个计算图的运行状态</td>
+<td>tf.all_variables()</td>
+</tr>
+<tr>
+<td>trainable_variables</td>
+<td>得到所有需要优化的参数</td>
+</tr>
+<tr>
+<td>initialize_all_variables</td>
+<td>初始化所有变量</td>
+<td>tf.initialize_all_variables()</td>
+</tr>
+<tr>
+<td>clip_by_value</td>
+<td>将一个张量中的数值限制在一个范围内，可以避免一些运算错误（log0）,小于min的被换成min，大于max的被换成max</td>
+<td>tf.clip_by_value(v, min, max)</td>
+</tr>
+<tr>
+<td>log</td>
+<td>对张量中所有元素依次求对数</td>
+<td>tf.log(v)</td>
+</tr>
+<tr>
+<td>加减乘除</td>
+<td>元素之间直接相操作</td>
+<td>v1 * v2</td>
+</tr>
+<tr>
+<td>matmul</td>
+<td>矩阵乘法</td>
+<td>tf.matmul(v1, v2)</td>
+</tr>
+<tr>
+<td>reduce_mean</td>
+<td>整个矩阵取平均</td>
+<td>tf.reduce_mean(v)</td>
+</tr>
+<tr>
+<td>square</td>
+<td>求平方</td>
+<td>tf.square(y_ - y)</td>
+</tr>
+<tr>
+<td>greater</td>
+<td>v1是否大于v2, 返回False, True,输入张量维度不一样时，tf会进行类似numpy广播操作的处理s</td>
+<td>tf.greater(v1, v2)</td>
+</tr>
+<tr>
+<td>select</td>
+<td>true返回v1 false返回v2</td>
+<td>tf.select(True, v1, v2)</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>Title:</span><a href="/2019/02/25/tensorflow/learning/">拟合一元二次方程过程</a></p>
+        <p><span>Author:</span><a href="/" title="Back to Homepage">yimi</a></p>
+        <p><span>Created:</span>2019-02-25, 21:48:38</p>
+        <p><span>Updated:</span>2019-02-25, 23:16:47</p>
+        <p>
+            <span>Full URL:</span><a class="post-url" href="/2019/02/25/tensorflow/learning/" title="拟合一元二次方程过程">http://wttwhite.github.io/2019/02/25/tensorflow/learning/</a>
+            <span class="copy-path" data-clipboard-text="From http://wttwhite.github.io/2019/02/25/tensorflow/learning/　　By yimi" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2019/02/19/python/math/">
+                    math库
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#基本概念"><span class="toc-number">1.</span> <span class="toc-text">基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#计算模型-计算图"><span class="toc-number">1.1.</span> <span class="toc-text">计算模型(计算图)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据模型-张量"><span class="toc-number">1.2.</span> <span class="toc-text">数据模型(张量)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#对中间结果的引用"><span class="toc-number">1.2.1.</span> <span class="toc-text">对中间结果的引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#获得计算结果"><span class="toc-number">1.2.2.</span> <span class="toc-text">获得计算结果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#变量"><span class="toc-number">1.2.3.</span> <span class="toc-text">变量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#运行模型-会话"><span class="toc-number">1.3.</span> <span class="toc-text">运行模型(会话)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#第一种模式"><span class="toc-number">1.3.1.</span> <span class="toc-text">第一种模式</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实现神经网络"><span class="toc-number">2.</span> <span class="toc-text">实现神经网络</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#神经网络解决分类问题"><span class="toc-number">2.1.</span> <span class="toc-text">神经网络解决分类问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#前向传播算法"><span class="toc-number">2.1.1.</span> <span class="toc-text">前向传播算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#监督学习方式"><span class="toc-number">2.1.2.</span> <span class="toc-text">监督学习方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#训练神经网络过程"><span class="toc-number">2.2.</span> <span class="toc-text">训练神经网络过程</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#深度神经网络"><span class="toc-number">3.</span> <span class="toc-text">深度神经网络</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#损失函数"><span class="toc-number">3.1.</span> <span class="toc-text">损失函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#分类问题"><span class="toc-number">3.1.1.</span> <span class="toc-text">分类问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#回归问题"><span class="toc-number">3.1.2.</span> <span class="toc-text">回归问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自定义损失函数"><span class="toc-number">3.1.3.</span> <span class="toc-text">自定义损失函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#神经网络优化算法"><span class="toc-number">3.1.4.</span> <span class="toc-text">神经网络优化算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#反向传播算法"><span class="toc-number">3.1.4.1.</span> <span class="toc-text">反向传播算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#梯度下降算法"><span class="toc-number">3.1.4.2.</span> <span class="toc-text">梯度下降算法</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#函数方法"><span class="toc-number">4.</span> <span class="toc-text">函数方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#函数"><span class="toc-number">4.1.</span> <span class="toc-text">函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tensorflow-函数"><span class="toc-number">4.2.</span> <span class="toc-text">tensorflow 函数</span></a></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
+
+    <script>
+        yiliaConfig.toc = ["Hide", "Show", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"拟合一元二次方程过程　| blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
+        
+
+        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2019/02/19/python/math/" title="Next: math库">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/02/25/tensorflow/learning/">拟合一元二次方程过程</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/19/python/math/">math库</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/19/python/pandas/">pandas分析数据</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/19/python/web-crawler/">用python实现网络爬取数据</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/17/tensorflow/quadratic_equation/">拟合一元二次方程过程</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/13/python/data_type/">python内置数据结构</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/10/matlab-查看自带函数源代码/">如何查看matlab自带函数的源代码</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/15/python/python/">python基础知识</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/15/正则表达式/正则表达式/">正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/06/插件/完美滚动条/">完美滚动条:prefect-scrollbar</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/js模块规范/CMD/CMD/">CMD</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/js模块规范/AMD/AMD/">AMD</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/js模块规范/commonjs/commomjs/">CommonJS</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/backbone/first/">backbone零基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/backbone/second/">backbone使用Collection</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/11/vue/vue_first/">vue知识总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/11/matlab/matlab-查看自带函数源代码/">如何查看matlab自带函数的源代码</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/28/sublime/sublime vue/">sublime vue 语法高亮插件安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/27/markdown/markdown/">markdown</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/03/demo/爱心小鱼/">爱心小鱼</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/30/myLife/">随记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/07/jquery/jQuery-插件编写/">jQuery插件的编写</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/14/javascript/避免js冲突/">避免JS冲突</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/13/javascript/JS-object/">Js对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/08/javascript/JS-prototype/">Js原型链</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2019 yimi
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+
+
+
+
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+             post: ".article-entry a[href], .copyright a[href]", 
+            
+            
+            
+            
+            
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
